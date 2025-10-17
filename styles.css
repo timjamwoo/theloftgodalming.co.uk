@@ -247,6 +247,153 @@ body {
     color: #333;
 }
 
+/* Amenities Section */
+.amenities {
+    padding: 80px 0;
+    background: white;
+}
+
+.amenities-content {
+    margin-top: 2rem;
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.amenity-category {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid #2c5530;
+}
+
+.amenity-category h3 {
+    color: #2c5530;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.amenity-category ul {
+    list-style: none;
+}
+
+.amenity-category li {
+    padding: 0.4rem 0;
+    color: #666;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.amenity-category li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #2c5530;
+    font-weight: bold;
+}
+
+/* Accommodation Section */
+.accommodation {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.accommodation-content {
+    margin-top: 2rem;
+}
+
+.accommodation-description {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.accommodation-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.accommodation-card h3 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.accommodation-card p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.accommodation-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Booking Info Section */
+.booking-info {
+    padding: 80px 0;
+    background: white;
+}
+
+.booking-content {
+    margin-top: 2rem;
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.booking-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    border-top: 4px solid #2c5530;
+}
+
+.booking-card h3 {
+    color: #2c5530;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.booking-detail {
+    margin: 1rem 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+.booking-detail strong {
+    color: #333;
+    display: inline-block;
+    min-width: 120px;
+}
+
+.booking-card p {
+    color: #666;
+    line-height: 1.7;
+    margin: 0.5rem 0;
+}
+
+.booking-card a {
+    color: #2c5530;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.booking-card a:hover {
+    text-decoration: underline;
+}
+
 /* Contact Section */
 .contact {
     padding: 80px 0;
@@ -388,6 +535,13 @@ body {
         gap: 2rem;
     }
     
+    .amenities-grid,
+    .accommodation-description,
+    .booking-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -421,12 +575,18 @@ body {
     }
     
     .features,
+    .amenities,
+    .accommodation,
+    .booking-info,
     .location,
     .contact {
         padding: 60px 0;
     }
     
-    .feature-card {
+    .feature-card,
+    .amenity-category,
+    .accommodation-card,
+    .booking-card {
         padding: 1.5rem;
     }
 }
