@@ -340,6 +340,13 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.5rem;
     font-size: 1.25rem;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.amenity-category h3 .category-icon {
+    font-size: 1.2rem;
 }
 
 .amenity-category ul {
@@ -350,15 +357,17 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.4rem 0;
     color: #666;
     position: relative;
-    padding-left: 1.5rem;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.amenity-category li:before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: #1a4d2e;
-    font-weight: bold;
+.amenity-category li .amenity-icon {
+    font-size: 1rem;
+    width: 1.5rem;
+    text-align: center;
+    flex-shrink: 0;
 }
 
 /* Accommodation Section */
