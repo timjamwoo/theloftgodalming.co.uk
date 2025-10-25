@@ -33,20 +33,23 @@
     <script src="https://kit.fontawesome.com/e0552412a4.js" crossorigin="anonymous" async></script>
 </head>
 <body>
+    <!-- Skip navigation link for screen readers -->
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    
     <header class="header">
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Main navigation">
             <div class="nav-container">
                 <h1 class="logo">The Loft Godalming</h1>
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#booking-info" class="nav-link">Booking</a></li>
-                    <li><a href="#features" class="nav-link">Features</a></li>
-                    <li><a href="#amenities" class="nav-link">Amenities</a></li>
-                    <li><a href="#accommodation" class="nav-link">Details</a></li>
-                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                    <li><a href="#reviews" class="nav-link">Reviews</a></li>
-                    <li><a href="#location" class="nav-link">Location</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                <ul class="nav-menu" role="menubar">
+                    <li role="none"><a href="#home" class="nav-link" role="menuitem">Home</a></li>
+                    <li role="none"><a href="#booking-info" class="nav-link" role="menuitem">Booking</a></li>
+                    <li role="none"><a href="#features" class="nav-link" role="menuitem">Features</a></li>
+                    <li role="none"><a href="#amenities" class="nav-link" role="menuitem">Amenities</a></li>
+                    <li role="none"><a href="#accommodation" class="nav-link" role="menuitem">Details</a></li>
+                    <li role="none"><a href="#gallery" class="nav-link" role="menuitem">Gallery</a></li>
+                    <li role="none"><a href="#reviews" class="nav-link" role="menuitem">Reviews</a></li>
+                    <li role="none"><a href="#location" class="nav-link" role="menuitem">Location</a></li>
+                    <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -54,13 +57,13 @@
 
     <!-- Sticky Book Now Button -->
     <div id="sticky-book-now" class="sticky-book-now">
-        <a href="#booking-info" class="book-now-btn">
-            <i class="fas fa-calendar-check"></i>
+        <a href="#booking-info" class="book-now-btn" aria-label="Book accommodation now - scroll to booking information">
+            <i class="fas fa-calendar-check" aria-hidden="true"></i>
             <span>Book Now</span>
         </a>
     </div>
 
-    <main>
+    <main id="main-content">
         <section id="home" class="hero">
             <div class="hero-background">
                 <picture>
@@ -102,13 +105,13 @@
                         <div class="booking-card">
                             <h3>House Rules</h3>
                             <div class="booking-detail">
-                                <i class="fas fa-times"></i> No pets
+                                <i class="fas fa-times" aria-hidden="true"></i> No pets
                             </div>
                             <div class="booking-detail">
-                                <i class="fas fa-ban"></i> No smoking
+                                <i class="fas fa-ban" aria-hidden="true"></i> No smoking
                             </div>
                             <div class="booking-detail">
-                                <i class="fas fa-child"></i> Not suitable for children
+                                <i class="fas fa-child" aria-hidden="true"></i> Not suitable for children
                             </div>
                         </div>
                         
@@ -122,9 +125,9 @@
             </div>
         </section>
 
-        <section id="features" class="features-amenities">
+        <section id="features" class="features-amenities" aria-labelledby="features-heading">
             <div class="container">
-                <h2 class="section-title">Features</h2>
+                <h2 id="features-heading" class="section-title">Features</h2>
                 
                 <!-- Features Section -->
                 <h3 class="subsection-title">What Makes The Loft Special</h3>
@@ -134,7 +137,7 @@
                             <source srcset="assets/images/sunny-kitchen.webp" type="image/webp">
                             <img src="assets/images/sunny-kitchen.jpg" alt="Self-contained kitchen facilities" class="feature-image" loading="lazy">
                         </picture>
-                        <div class="feature-icon"><i class="fas fa-home"></i></div>
+                        <div class="feature-icon"><i class="fas fa-home" aria-hidden="true"></i></div>
                         <h3>Self-Contained Living</h3>
                         <p>Complete independence with your own kitchen and bathroom on the ground floor. Everything you need for a comfortable stay.</p>
                     </div>
@@ -143,7 +146,7 @@
                             <source srcset="assets/images/window-view.webp" type="image/webp">
                             <img src="assets/images/window-view.jpg" alt="Beautiful Surrey countryside views" class="feature-image" loading="lazy">
                         </picture>
-                        <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                        <div class="feature-icon"><i class="fas fa-leaf" aria-hidden="true"></i></div>
                         <h3>Countryside Views</h3>
                         <p>Wake up to beautiful views of the Surrey countryside from your bright and airy loft accommodation.</p>
                     </div>
@@ -152,7 +155,7 @@
                             <source srcset="assets/images/woodburner.webp" type="image/webp">
                             <img src="assets/images/woodburner.jpg" alt="Traditional woodburner for cozy evenings" class="feature-image" loading="lazy">
                         </picture>
-                        <div class="feature-icon"><i class="fas fa-fire"></i></div>
+                        <div class="feature-icon"><i class="fas fa-fire" aria-hidden="true"></i></div>
                         <h3>Cozy Woodburner</h3>
                         <p>Stay warm and create a perfect ambiance during cooler months with our traditional woodburner fireplace.</p>
                     </div>
@@ -161,7 +164,7 @@
                             <source srcset="assets/images/stylish-details.webp" type="image/webp">
                             <img src="assets/images/stylish-details.jpg" alt="Recently refurbished modern amenities" class="feature-image" loading="lazy">
                         </picture>
-                        <div class="feature-icon"><i class="fas fa-sparkles"></i></div>
+                        <div class="feature-icon"><i class="fas fa-sparkles" aria-hidden="true"></i></div>
                         <h3>Recently Refurbished</h3>
                         <p>Enjoy modern amenities and contemporary design throughout this thoughtfully updated space.</p>
                     </div>
@@ -170,7 +173,7 @@
                             <source srcset="assets/images/seating-area.webp" type="image/webp">
                             <img src="assets/images/seating-area.jpg" alt="Perfect accommodation for two guests" class="feature-image" loading="lazy">
                         </picture>
-                        <div class="feature-icon" role="img" aria-label="Two guests"><i class="fas fa-people"></i></div>
+                        <div class="feature-icon" role="img" aria-label="Two guests"><i class="fas fa-people" aria-hidden="true"></i></div>
                         <h3>Perfect for Two</h3>
                         <p>Ideal accommodation for couples or friends seeking a peaceful retreat in beautiful Surrey.</p>
                     </div>
@@ -179,17 +182,17 @@
                             <source srcset="assets/images/building-exterior.webp" type="image/webp">
                             <img src="assets/images/building-exterior.jpg" alt="Close to transport links and town center" class="feature-image" loading="lazy">
                         </picture>
-                        <div class="feature-icon" role="img" aria-label="Transport links"><i class="fas fa-train"></i></div>
+                        <div class="feature-icon" role="img" aria-label="Transport links"><i class="fas fa-train" aria-hidden="true"></i></div>
                         <h3>Excellent Transport Links</h3>
                         <p>Easy access to Godalming's mainline train station for convenient travel to London and beyond.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="amenities" id="amenities">
+        <section class="amenities" id="amenities" aria-labelledby="amenities-heading">
             <div class="container">
                 <!-- Amenities Section -->
-                <h3 class="subsection-title">Complete Amenities & Facilities</h3>
+                <h3 id="amenities-heading" class="subsection-title">Complete Amenities & Facilities</h3>
                 <div class="amenities-content">
                     <div class="amenities-grid">
                         <div class="amenity-category">
@@ -299,9 +302,9 @@
             </div>
         </section>
 
-      <section id="gallery" class="gallery">
+        <section id="gallery" class="gallery" aria-labelledby="gallery-heading">
         <div class="container">
-          <h2 class="section-title">Photo Gallery</h2>
+          <h2 id="gallery-heading" class="section-title">Photo Gallery</h2>
           <p class="gallery-subtitle">Take a virtual tour of The Loft Godalming</p>
           <div class="gallery-grid">
             <div class="gallery-item">
@@ -361,12 +364,12 @@
                 <div class="reviews-grid">
                     <div class="review-card">
                         <div class="review-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                            <div class="stars" role="img" aria-label="5 out of 5 stars">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <blockquote class="review-text">
@@ -380,12 +383,12 @@
                     
                     <div class="review-card">
                         <div class="review-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                            <div class="stars" role="img" aria-label="5 out of 5 stars">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <blockquote class="review-text">
@@ -399,12 +402,12 @@
                     
                     <div class="review-card">
                         <div class="review-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                            <div class="stars" role="img" aria-label="5 out of 5 stars">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <blockquote class="review-text">
@@ -418,12 +421,12 @@
                     
                     <div class="review-card">
                         <div class="review-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                            <div class="stars" role="img" aria-label="5 out of 5 stars">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                         <blockquote class="review-text">
@@ -439,7 +442,7 @@
                 <div class="reviews-cta">
                     <p>Read all our reviews on Airbnb</p>
                     <a href="https://www.airbnb.com/rooms/18808847?source_impression_id=p3_1761381645_P3w-vI6hd2JgIMFd" target="_blank" rel="noopener noreferrer" class="airbnb-link">
-                        <i class="fab fa-airbnb"></i>
+                        <i class="fab fa-airbnb" aria-hidden="true"></i>
                         View Full Reviews on Airbnb
                     </a>
                 </div>
@@ -486,12 +489,12 @@
                         
                         <h4>Nearby Amenities:</h4>
                         <ul class="amenities-list">
-                            <li><i class="fas fa-train"></i> Mainline train station for direct access to London</li>
-                            <li><i class="fas fa-shopping-cart"></i> Supermarkets and local shops</li>
-                            <li><i class="fas fa-utensils"></i> Variety of restaurants and cafes</li>
-                            <li><i class="fas fa-beer"></i> Traditional pubs and modern bars</li>
-                            <li><i class="fas fa-water"></i> Beautiful riverside location</li>
-                            <li><i class="fas fa-walking"></i> Scenic walking and cycling routes</li>
+                            <li><i class="fas fa-train" aria-hidden="true"></i> Mainline train station for direct access to London</li>
+                            <li><i class="fas fa-shopping-cart" aria-hidden="true"></i> Supermarkets and local shops</li>
+                            <li><i class="fas fa-utensils" aria-hidden="true"></i> Variety of restaurants and cafes</li>
+                            <li><i class="fas fa-beer" aria-hidden="true"></i> Traditional pubs and modern bars</li>
+                            <li><i class="fas fa-water" aria-hidden="true"></i> Beautiful riverside location</li>
+                            <li><i class="fas fa-walking" aria-hidden="true"></i> Scenic walking and cycling routes</li>
                         </ul>
                     </div>
                     <div class="location-info">
@@ -583,12 +586,12 @@
                     <div class="booking-highlights">
                         <h4>What's Included:</h4>
                         <ul>
-                            <li><i class="fas fa-check"></i> Self-contained loft accommodation</li>
-                            <li><i class="fas fa-check"></i> Private kitchen and bathroom</li>
-                            <li><i class="fas fa-check"></i> Woodburner for cozy evenings</li>
-                            <li><i class="fas fa-check"></i> Beautiful countryside views</li>
-                            <li><i class="fas fa-check"></i> Free parking (subject to availability)</li>
-                            <li><i class="fas fa-check"></i> Welcome pack with local information</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Self-contained loft accommodation</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Private kitchen and bathroom</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Woodburner for cozy evenings</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Beautiful countryside views</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Free parking (subject to availability)</li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> Welcome pack with local information</li>
                         </ul>
                         
                         <div class="booking-note">
@@ -614,15 +617,15 @@
                     <p>Modern self-contained accommodation in the heart of Surrey</p>
                     <div class="footer-contact">
                         <div class="contact-item footer-item">
-                            <i class="fas fa-phone"></i>
+                            <i class="fas fa-phone" aria-hidden="true"></i>
                             <a href="tel:+44-7786-074606">07786 074606</a>
                         </div>
                         <div class="contact-item footer-item">
-                            <i class="fas fa-envelope"></i>
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
                             <a href="mailto:louisejainwoods@yahoo.co.uk">louisejainwoods@yahoo.co.uk</a>
                         </div>
                         <div class="contact-item footer-item">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                             <span>Godalming, Surrey, UK</span>
                         </div>
                     </div>
