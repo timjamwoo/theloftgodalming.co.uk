@@ -519,12 +519,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-item a {
-    color: #f8f6f0;
+    color: #1a4d2e;
     text-decoration: none;
 }
 
 .contact-item a:hover {
     text-decoration: underline;
+}
+
+.footer-item a {
+  color: #f8f6f0;
 }
 
 .booking-highlights {
