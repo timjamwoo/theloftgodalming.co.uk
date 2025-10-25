@@ -18,17 +18,24 @@
                 <h1 class="logo">The Loft Godalming</h1>
                 <ul class="nav-menu">
                     <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                    <li><a href="#features" class="nav-link">Features</a></li>
-                    <li><a href="#amenities" class="nav-link">Amenities</a></li>
-                    <li><a href="#accommodation" class="nav-link">Details</a></li>
                     <li><a href="#booking-info" class="nav-link">Booking</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#features-amenities" class="nav-link">Features & Amenities</a></li>
+                    <li><a href="#accommodation" class="nav-link">Details</a></li>
                     <li><a href="#location" class="nav-link">Location</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+
+    <!-- Sticky Book Now Button -->
+    <div id="sticky-book-now" class="sticky-book-now">
+        <a href="#booking-info" class="book-now-btn">
+            <i class="fas fa-calendar-check"></i>
+            <span>Book Now</span>
+        </a>
+    </div>
 
     <main>
         <section id="home" class="hero">
@@ -54,6 +61,54 @@
                     <div class="highlight">
                         <span class="highlight-icon"><i class="fas fa-fire"></i></span>
                         <span class="highlight-text">Woodburner</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking-info" class="booking-info">
+            <div class="container">
+                <h2 class="section-title">Booking Information</h2>
+                <div class="booking-content">
+                    <div class="booking-grid">
+                        <div class="booking-card">
+                            <h3>Check-in & Check-out</h3>
+                            <div class="booking-detail">
+                                <strong>Check-in:</strong> From 3:00 PM
+                            </div>
+                            <div class="booking-detail">
+                                <strong>Check-out:</strong> 11:00 AM
+                            </div>
+                        </div>
+                        
+                        <div class="booking-card">
+                            <h3>Stay Requirements</h3>
+                            <div class="booking-detail">
+                                <strong>Minimum stay:</strong> 4 nights
+                            </div>
+                            <div class="booking-detail">
+                                <strong>Long-term discount:</strong> 25% reduction for stays over 28 days
+                            </div>
+                        </div>
+                        
+                        <div class="booking-card">
+                            <h3>House Rules</h3>
+                            <div class="booking-detail">
+                                <i class="fas fa-times"></i> No pets
+                            </div>
+                            <div class="booking-detail">
+                                <i class="fas fa-ban"></i> No smoking
+                            </div>
+                            <div class="booking-detail">
+                                <i class="fas fa-child"></i> Not suitable for children
+                            </div>
+                        </div>
+                        
+                        <div class="booking-card">
+                            <h3>Contact Louise</h3>
+                            <p>Please phone Louise on <a href="tel:+447786074606">07786074606</a> to enquire about booking.</p>
+                            <p>Alternatively email on <a href="mailto:louisejainwoods@yahoo.co.uk">louisejainwoods@yahoo.co.uk</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -104,9 +159,12 @@
             </div>
         </section>
 
-        <section id="features" class="features">
+        <section id="features-amenities" class="features">
             <div class="container">
-                <h2 class="section-title">What Makes The Loft Special</h2>
+                <h2 class="section-title">Features & Amenities</h2>
+                
+                <!-- Features Section -->
+                <h3 class="subsection-title">What Makes The Loft Special</h3>
                 <div class="features-grid">
                     <div class="feature-card">
                         <img src="assets/images/sunny-kitchen.jpg" alt="Self-contained kitchen facilities" class="feature-image">
@@ -145,12 +203,9 @@
                         <p>Easy access to Godalming's mainline train station for convenient travel to London and beyond.</p>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="amenities" class="amenities">
-            <div class="container">
-                <h2 class="section-title">Complete Amenities & Facilities</h2>
+                <!-- Amenities Section -->
+                <h3 class="subsection-title">Complete Amenities & Facilities</h3>
                 <div class="amenities-content">
                     <div class="amenities-grid">
                         <div class="amenity-category">
@@ -260,54 +315,6 @@
             </div>
         </section>
 
-        <section id="booking-info" class="booking-info">
-            <div class="container">
-                <h2 class="section-title">Booking Information</h2>
-                <div class="booking-content">
-                    <div class="booking-grid">
-                        <div class="booking-card">
-                            <h3>Check-in & Check-out</h3>
-                            <div class="booking-detail">
-                                <strong>Check-in:</strong> From 3:00 PM
-                            </div>
-                            <div class="booking-detail">
-                                <strong>Check-out:</strong> 11:00 AM
-                            </div>
-                        </div>
-                        
-                        <div class="booking-card">
-                            <h3>Stay Requirements</h3>
-                            <div class="booking-detail">
-                                <strong>Minimum stay:</strong> 4 nights
-                            </div>
-                            <div class="booking-detail">
-                                <strong>Long-term discount:</strong> 25% reduction for stays over 28 days
-                            </div>
-                        </div>
-                        
-                        <div class="booking-card">
-                            <h3>House Rules</h3>
-                            <div class="booking-detail">
-                                <i class="fas fa-times"></i> No pets
-                            </div>
-                            <div class="booking-detail">
-                                <i class="fas fa-ban"></i> No smoking
-                            </div>
-                            <div class="booking-detail">
-                                <i class="fas fa-child"></i> Not suitable for children
-                            </div>
-                        </div>
-                        
-                        <div class="booking-card">
-                            <h3>Contact Louise</h3>
-                            <p>Please phone Louise on <a href="tel:+447786074606">07786074606</a> to enquire about booking.</p>
-                            <p>Alternatively email on <a href="mailto:louisejainwoods@yahoo.co.uk">louisejainwoods@yahoo.co.uk</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="location" class="location">
             <div class="container">
                 <h2 class="section-title">Prime Godalming Location</h2>
@@ -395,10 +402,9 @@
                 </div>
                 <div class="footer-links">
                     <a href="#home">Home</a>
-                    <a href="#gallery">Gallery</a>
-                    <a href="#features">Features</a>
-                    <a href="#amenities">Amenities</a>
                     <a href="#booking-info">Booking</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#features-amenities">Features & Amenities</a>
                     <a href="#contact">Contact</a>
                 </div>
             </div>
