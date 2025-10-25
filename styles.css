@@ -516,11 +516,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .contact-item {
     margin: 1rem 0;
-    color: #666;
 }
 
 .contact-item a {
-    color: #1a4d2e;
+    color: #f8f6f0;
     text-decoration: none;
 }
 
@@ -1168,6 +1167,7 @@ html {
 
 .features-amenities .subsection-title:first-of-type {
     margin-top: 1rem;
+    background: #f8f6f0;
 }
 
 /* Mobile responsive adjustments for sticky button */
