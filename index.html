@@ -73,104 +73,24 @@
             </div>
         </section>
 
-        <section id="booking-info" class="contact">
+        <section id="booking-banner" class="booking-banner">
             <div class="container">
-                <h2 class="section-title">Booking</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h3>Send Us an Enquiry</h3>
-                        <p>Fill out the form below to check availability and book your stay in our beautiful Godalming loft. We'll get back to you as soon as possible.</p>
-                        
-                        <!-- Contact Form -->
-                        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xzzkpyea" method="POST">
-                            <div class="form-group">
-                                <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required>
-                                <span class="error-message" id="name-error"></span>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
-                                <span class="error-message" id="email-error"></span>
-                            </div>
-                            
-                            <div class="form-group form-group-dates">
-                                <div class="date-input-group">
-                                    <label for="check-in">Check-in Date *</label>
-                                    <input type="date" id="check-in" name="check-in" required>
-                                    <span class="error-message" id="check-in-error"></span>
-                                </div>
-                                <div class="date-input-group">
-                                    <label for="check-out">Check-out Date *</label>
-                                    <input type="date" id="check-out" name="check-out" required>
-                                    <span class="error-message" id="check-out-error"></span>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message">Message *</label>
-                                <textarea id="message" name="message" rows="5" placeholder="Please tell us about your stay requirements, any special requests, or questions you may have..." required></textarea>
-                                <span class="error-message" id="message-error"></span>
-                            </div>
-                            
-                            <button type="submit" class="submit-btn">
-                                <span class="btn-text">Send Enquiry</span>
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </form>
-                        
-                        <!-- Success/Error Messages -->
-                        <div id="form-message" class="form-message" style="display: none;"></div>
-                        
-                        <div class="contact-divider">
-                            <span>OR</span>
-                        </div>
-                        
-                        <div class="contact-details">
-                            <h4>Contact Louise Directly</h4>
-                            <div class="contact-item">
-                                <strong>Phone:</strong> <a href="tel:+447786074606">07786 074606</a>
-                            </div>
-                            <div class="contact-item">
-                                <strong>Email:</strong> <a href="mailto:louisejainwoods@yahoo.co.uk">louisejainwoods@yahoo.co.uk</a>
-                            </div>
-                            <div class="contact-item">
-                                <strong>Location:</strong> Godalming, Surrey, UK
-                            </div>
+                <div class="booking-banner-content">
+                    <div class="booking-banner-text">
+                        <h2 class="booking-banner-title">Ready to Book Your Stay?</h2>
+                        <p class="booking-banner-subtitle">Experience our beautiful self-contained loft in the heart of Surrey countryside</p>
+                        <div class="booking-banner-highlights">
+                            <span><i class="fas fa-check"></i> 4+ night minimum stay</span>
+                            <span><i class="fas fa-check"></i> Perfect for 2 guests</span>
+                            <span><i class="fas fa-check"></i> Free parking</span>
                         </div>
                     </div>
-                    
-                    <div class="booking-highlights">
-                        <h4>What's Included:</h4>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Self-contained loft accommodation</li>
-                            <li><i class="fas fa-check"></i> Private kitchen and bathroom</li>
-                            <li><i class="fas fa-check"></i> Woodburner for cozy evenings</li>
-                            <li><i class="fas fa-check"></i> Beautiful countryside views</li>
-                            <li><i class="fas fa-check"></i> Free parking (subject to availability)</li>
-                            <li><i class="fas fa-check"></i> Welcome pack with local information</li>
-                        </ul>
-                        
-                        <div class="booking-note">
-                            <h4>Booking Information:</h4>
-                            <ul>
-                                <li><strong>Minimum stay:</strong> 4 nights</li>
-                                <li><strong>Long-term discount:</strong> 25% reduction for stays over 28 days</li>
-                                <li><strong>Check-in:</strong> From 3:00 PM</li>
-                                <li><strong>Check-out:</strong> 11:00 AM</li>
-                                <li><strong>Guests:</strong> Maximum 2 people</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="booking-note">
-                            <h4>House Rules:</h4>
-                            <ul>
-                                <li><i class="fas fa-times"></i> No pets</li>
-                                <li><i class="fas fa-ban"></i> No smoking</li>
-                                <li><i class="fas fa-child"></i> Not suitable for children</li>
-                            </ul>
-                        </div>
+                    <div class="booking-banner-cta">
+                        <a href="#booking-info" class="booking-banner-btn">
+                            <i class="fas fa-calendar-check"></i>
+                            Book Now
+                        </a>
+                        <p class="booking-banner-note">Or call Louise directly: <a href="tel:+447786074606">07786 074606</a></p>
                     </div>
                 </div>
             </div>
@@ -548,6 +468,109 @@
                             <p><strong>Train to London:</strong> ~45 minutes</p>
                             <p><strong>Direct service to:</strong> Waterloo</p>
                             <p><strong>Frequency:</strong> Regular services</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking-info" class="contact">
+            <div class="container">
+                <h2 class="section-title">Booking</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Send Us an Enquiry</h3>
+                        <p>Fill out the form below to check availability and book your stay in our beautiful Godalming loft. We'll get back to you as soon as possible.</p>
+                        
+                        <!-- Contact Form -->
+                        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xzzkpyea" method="POST">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message" id="name-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" id="email-error"></span>
+                            </div>
+                            
+                            <div class="form-group form-group-dates">
+                                <div class="date-input-group">
+                                    <label for="check-in">Check-in Date *</label>
+                                    <input type="date" id="check-in" name="check-in" required>
+                                    <span class="error-message" id="check-in-error"></span>
+                                </div>
+                                <div class="date-input-group">
+                                    <label for="check-out">Check-out Date *</label>
+                                    <input type="date" id="check-out" name="check-out" required>
+                                    <span class="error-message" id="check-out-error"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Please tell us about your stay requirements, any special requests, or questions you may have..." required></textarea>
+                                <span class="error-message" id="message-error"></span>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <span class="btn-text">Send Enquiry</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                        
+                        <!-- Success/Error Messages -->
+                        <div id="form-message" class="form-message" style="display: none;"></div>
+                        
+                        <div class="contact-divider">
+                            <span>OR</span>
+                        </div>
+                        
+                        <div class="contact-details">
+                            <h4>Contact Louise Directly</h4>
+                            <div class="contact-item">
+                                <strong>Phone:</strong> <a href="tel:+447786074606">07786 074606</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>Email:</strong> <a href="mailto:louisejainwoods@yahoo.co.uk">louisejainwoods@yahoo.co.uk</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>Location:</strong> Godalming, Surrey, UK
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-highlights">
+                        <h4>What's Included:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Self-contained loft accommodation</li>
+                            <li><i class="fas fa-check"></i> Private kitchen and bathroom</li>
+                            <li><i class="fas fa-check"></i> Woodburner for cozy evenings</li>
+                            <li><i class="fas fa-check"></i> Beautiful countryside views</li>
+                            <li><i class="fas fa-check"></i> Free parking (subject to availability)</li>
+                            <li><i class="fas fa-check"></i> Welcome pack with local information</li>
+                        </ul>
+                        
+                        <div class="booking-note">
+                            <h4>Booking Information:</h4>
+                            <ul>
+                                <li><strong>Minimum stay:</strong> 4 nights</li>
+                                <li><strong>Long-term discount:</strong> 25% reduction for stays over 28 days</li>
+                                <li><strong>Check-in:</strong> From 3:00 PM</li>
+                                <li><strong>Check-out:</strong> 11:00 AM</li>
+                                <li><strong>Guests:</strong> Maximum 2 people</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="booking-note">
+                            <h4>House Rules:</h4>
+                            <ul>
+                                <li><i class="fas fa-times"></i> No pets</li>
+                                <li><i class="fas fa-ban"></i> No smoking</li>
+                                <li><i class="fas fa-child"></i> Not suitable for children</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
