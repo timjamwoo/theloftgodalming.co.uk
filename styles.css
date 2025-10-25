@@ -803,6 +803,12 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.9rem;
 }
 
+.booking-note li i {
+    color: #1a4d2e;
+    margin-right: 0.5rem;
+    width: 1.2rem;
+}
+
 /* Footer */
 .footer {
     background: #1a4d2e;
