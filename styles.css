@@ -579,6 +579,34 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0.8;
 }
 
+.footer-contact {
+    margin-top: 1rem;
+}
+
+.footer-contact .contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.footer-contact .contact-item i {
+    margin-right: 0.5rem;
+    width: 1.2rem;
+    opacity: 0.8;
+}
+
+.footer-contact .contact-item a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.footer-contact .contact-item a:hover {
+    opacity: 1;
+}
+
 .footer-links {
     display: flex;
     gap: 2rem;
