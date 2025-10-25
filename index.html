@@ -3,13 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Loft Godalming - Recently refurbished, bright & modern self-contained loft accommodation with countryside views in Godalming, Surrey, UK.">
+    <meta name="description" content="Recently refurbished, modern self-contained loft with countryside views in Godalming, Surrey. Perfect for 2 guests with woodburner & parking.">
     <meta name="keywords" content="Godalming accommodation, Surrey loft rental, self-contained apartment, countryside views, woodburner, vacation rental">
     <meta name="author" content="The Loft Godalming">
+
     <title>The Loft Godalming - Modern Self-Contained Accommodation in Surrey</title>
-    <link rel="stylesheet" href="styles.css">
+   
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="The Loft Godalming | Modern Self-Contained Accommodation in Surrey">
+    <meta property="og:description" content="Recently refurbished, modern self-contained loft with countryside views in Godalming, Surrey. Perfect for 2 guests with woodburner & parking.">
+    <meta property="og:image" content="https://theloftgodalming.co.uk/assets/images/hero-shot.jpg">
+    <meta property="og:image:alt" content="The Loft Godalming - Beautiful countryside accommodation">
+    <meta property="og:url" content="https://theloftgodalming.co.uk">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="The Loft Godalming">
+    <meta property="og:locale" content="en_GB">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Loft Godalming | Modern Self-Contained Accommodation in Surrey">
+    <meta name="twitter:description" content="Recently refurbished, modern self-contained loft with countryside views in Godalming, Surrey. Perfect for 2 guests with woodburner & parking.">
+    <meta name="twitter:image" content="https://theloftgodalming.co.uk/assets/images/hero-shot.jpg">
+    <meta name="twitter:image:alt" content="The Loft Godalming - Beautiful countryside accommodation">
+    
+    <link rel="stylesheet" href="styles.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/e0552412a4.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e0552412a4.js" crossorigin="anonymous" async></script>
 </head>
 <body>
     <header class="header">
@@ -18,11 +39,10 @@
                 <h1 class="logo">The Loft Godalming</h1>
                 <ul class="nav-menu">
                     <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                    <li><a href="#features" class="nav-link">Features</a></li>
-                    <li><a href="#amenities" class="nav-link">Amenities</a></li>
-                    <li><a href="#accommodation" class="nav-link">Details</a></li>
                     <li><a href="#booking-info" class="nav-link">Booking</a></li>
+                    <li><a href="#features-amenities" class="nav-link">Features & Amenities</a></li>
+                    <li><a href="#accommodation" class="nav-link">Details</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
                     <li><a href="#location" class="nav-link">Location</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
@@ -30,127 +50,141 @@
         </nav>
     </header>
 
+    <!-- Sticky Book Now Button -->
+    <div id="sticky-book-now" class="sticky-book-now">
+        <a href="#booking-info" class="book-now-btn">
+            <i class="fas fa-calendar-check"></i>
+            <span>Book Now</span>
+        </a>
+    </div>
+
     <main>
         <section id="home" class="hero">
             <div class="hero-background">
-                <img src="assets/images/hero-shot.jpg" alt="The Loft Godalming - Beautiful countryside accommodation" class="hero-bg-image">
+                <picture>
+                    <source srcset="assets/images/hero-shot.webp" type="image/webp">
+                    <img src="assets/images/hero-shot.jpg" alt="The Loft Godalming - Beautiful countryside accommodation" class="hero-bg-image">
+                </picture>
             </div>
             <div class="hero-content">
-                <h2 class="hero-title">Recently Refurbished Modern Loft</h2>
-                <p class="hero-subtitle">Bright & modern self-contained accommodation with stunning countryside views</p>
-                <div class="hero-description">
-                    <p>Recently refurbished, bright & modern accommodation in self contained loft with views to countryside. One mile from Godalming town centre's riverside location with great amenities including mainline train station, supermarkets, bars & restaurants.</p>
-                    <p>The Loft is a self contained bedroom/living room on the first floor of our double garage, with own kitchen and bathroom on the ground floor. Accessed by its own front door. Suitable for 2 guests.</p>
-                </div>
-                <div class="hero-highlights">
-                    <div class="highlight">
-                        <span class="highlight-number">2</span>
-                        <span class="highlight-text">Guests</span>
-                    </div>
-                    <div class="highlight">
-                        <span class="highlight-number">1</span>
-                        <span class="highlight-text">Mile from Town</span>
-                    </div>
-                    <div class="highlight">
-                        <span class="highlight-icon"><i class="fas fa-fire"></i></span>
-                        <span class="highlight-text">Woodburner</span>
+                <h2 class="hero-title">The Loft Godalming</h2>
+                <p class="hero-subtitle">A bright, modern self-contained loft in Godalming, Surrey — perfect for two, with countryside views and easy access to town.</p>
+            </div>
+        </section>
+
+        <section id="booking-info" class="booking-info">
+            <div class="container">
+                <h2 class="section-title">Booking Information</h2>
+                <div class="booking-content">
+                    <div class="booking-grid">
+                        <div class="booking-card">
+                            <h3>Check-in & Check-out</h3>
+                            <div class="booking-detail">
+                                <strong>Check-in:</strong> From 3:00 PM
+                            </div>
+                            <div class="booking-detail">
+                                <strong>Check-out:</strong> 11:00 AM
+                            </div>
+                        </div>
+                        
+                        <div class="booking-card">
+                            <h3>Stay Requirements</h3>
+                            <div class="booking-detail">
+                                <strong>Minimum stay:</strong> 4 nights
+                            </div>
+                            <div class="booking-detail">
+                                <strong>Long-term discount:</strong> 25% reduction for stays over 28 days
+                            </div>
+                        </div>
+                        
+                        <div class="booking-card">
+                            <h3>House Rules</h3>
+                            <div class="booking-detail">
+                                <i class="fas fa-times"></i> No pets
+                            </div>
+                            <div class="booking-detail">
+                                <i class="fas fa-ban"></i> No smoking
+                            </div>
+                            <div class="booking-detail">
+                                <i class="fas fa-child"></i> Not suitable for children
+                            </div>
+                        </div>
+                        
+                        <div class="booking-card">
+                            <h3>Contact Louise</h3>
+                            <p>Please phone Louise on <a href="tel:+447786074606">07786074606</a> to enquire about booking.</p>
+                            <p>Alternatively email on <a href="mailto:louisejainwoods@yahoo.co.uk">louisejainwoods@yahoo.co.uk</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="gallery" class="gallery">
+        <section id="features-amenities" class="features-amenities">
             <div class="container">
-                <h2 class="section-title">Photo Gallery</h2>
-                <p class="gallery-subtitle">Take a virtual tour of The Loft Godalming</p>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="assets/images/living-room-woodburner.jpg" alt="Cozy living room with traditional woodburner and comfortable seating" loading="lazy">
-                        <div class="gallery-caption">Living Room with Woodburner</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/bedroom-bed.jpg" alt="Comfortable bedroom with modern furnishings" loading="lazy">
-                        <div class="gallery-caption">Comfortable Bedroom</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/bathroom-vanity.jpg" alt="Modern bathroom with stylish vanity and mirror" loading="lazy">
-                        <div class="gallery-caption">Modern Bathroom</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/kitchen-area.jpg" alt="Well-equipped kitchen area with modern appliances" loading="lazy">
-                        <div class="gallery-caption">Kitchen Area</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/bathroom-shower.jpg" alt="Stylish shower room with contemporary design" loading="lazy">
-                        <div class="gallery-caption">Shower Room</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/countryside-view.jpg" alt="Beautiful countryside views from the loft" loading="lazy">
-                        <div class="gallery-caption">Countryside Views</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/living-room.jpg" alt="Spacious living area showing the open plan design" loading="lazy">
-                        <div class="gallery-caption">Spacious Living Area</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/property-exterior.jpg" alt="Exterior view of The Loft Godalming property" loading="lazy">
-                        <div class="gallery-caption">Property Exterior</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/accommodation-space.jpg" alt="Bright interior spaces with natural light" loading="lazy">
-                        <div class="gallery-caption">Bright Interior</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="features" class="features">
-            <div class="container">
-                <h2 class="section-title">What Makes The Loft Special</h2>
+                <h2 class="section-title">Features & Amenities</h2>
+                
+                <!-- Features Section -->
+                <h3 class="subsection-title">What Makes The Loft Special</h3>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <img src="assets/images/sunny-kitchen.jpg" alt="Self-contained kitchen facilities" class="feature-image">
+                        <picture>
+                            <source srcset="assets/images/sunny-kitchen.webp" type="image/webp">
+                            <img src="assets/images/sunny-kitchen.jpg" alt="Self-contained kitchen facilities" class="feature-image" loading="lazy">
+                        </picture>
                         <div class="feature-icon"><i class="fas fa-home"></i></div>
                         <h3>Self-Contained Living</h3>
                         <p>Complete independence with your own kitchen and bathroom on the ground floor. Everything you need for a comfortable stay.</p>
                     </div>
                     <div class="feature-card">
-                        <img src="assets/images/window-view.jpg" alt="Beautiful Surrey countryside views" class="feature-image">
+                        <picture>
+                            <source srcset="assets/images/window-view.webp" type="image/webp">
+                            <img src="assets/images/window-view.jpg" alt="Beautiful Surrey countryside views" class="feature-image" loading="lazy">
+                        </picture>
                         <div class="feature-icon"><i class="fas fa-mountain"></i></div>
                         <h3>Countryside Views</h3>
                         <p>Wake up to beautiful views of the Surrey countryside from your bright and airy loft accommodation.</p>
                     </div>
                     <div class="feature-card">
-                        <img src="assets/images/woodburner.jpg" alt="Traditional woodburner for cozy evenings" class="feature-image">
+                        <picture>
+                            <source srcset="assets/images/woodburner.webp" type="image/webp">
+                            <img src="assets/images/woodburner.jpg" alt="Traditional woodburner for cozy evenings" class="feature-image" loading="lazy">
+                        </picture>
                         <div class="feature-icon"><i class="fas fa-fire"></i></div>
                         <h3>Cozy Woodburner</h3>
                         <p>Stay warm and create a perfect ambiance during cooler months with our traditional woodburner fireplace.</p>
                     </div>
                     <div class="feature-card">
-                        <img src="assets/images/stylish-details.jpg" alt="Recently refurbished modern amenities" class="feature-image">
+                        <picture>
+                            <source srcset="assets/images/stylish-details.webp" type="image/webp">
+                            <img src="assets/images/stylish-details.jpg" alt="Recently refurbished modern amenities" class="feature-image" loading="lazy">
+                        </picture>
                         <div class="feature-icon"><i class="fas fa-sparkles"></i></div>
                         <h3>Recently Refurbished</h3>
                         <p>Enjoy modern amenities and contemporary design throughout this thoughtfully updated space.</p>
                     </div>
                     <div class="feature-card">
-                        <img src="assets/images/seating-area.jpg" alt="Perfect accommodation for two guests" class="feature-image">
+                        <picture>
+                            <source srcset="assets/images/seating-area.webp" type="image/webp">
+                            <img src="assets/images/seating-area.jpg" alt="Perfect accommodation for two guests" class="feature-image" loading="lazy">
+                        </picture>
                         <div class="feature-icon" role="img" aria-label="Two guests"><i class="fas fa-users"></i></div>
                         <h3>Perfect for Two</h3>
                         <p>Ideal accommodation for couples or friends seeking a peaceful retreat in beautiful Surrey.</p>
                     </div>
                     <div class="feature-card">
-                        <img src="assets/images/building-exterior.jpg" alt="Close to transport links and town center" class="feature-image">
+                        <picture>
+                            <source srcset="assets/images/building-exterior.webp" type="image/webp">
+                            <img src="assets/images/building-exterior.jpg" alt="Close to transport links and town center" class="feature-image" loading="lazy">
+                        </picture>
                         <div class="feature-icon" role="img" aria-label="Transport links"><i class="fas fa-train"></i></div>
                         <h3>Excellent Transport Links</h3>
                         <p>Easy access to Godalming's mainline train station for convenient travel to London and beyond.</p>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="amenities" class="amenities">
-            <div class="container">
-                <h2 class="section-title">Complete Amenities & Facilities</h2>
+                <!-- Amenities Section -->
+                <h3 class="subsection-title">Complete Amenities & Facilities</h3>
                 <div class="amenities-content">
                     <div class="amenities-grid">
                         <div class="amenity-category">
@@ -260,53 +294,59 @@
             </div>
         </section>
 
-        <section id="booking-info" class="booking-info">
-            <div class="container">
-                <h2 class="section-title">Booking Information</h2>
-                <div class="booking-content">
-                    <div class="booking-grid">
-                        <div class="booking-card">
-                            <h3>Check-in & Check-out</h3>
-                            <div class="booking-detail">
-                                <strong>Check-in:</strong> From 3:00 PM
-                            </div>
-                            <div class="booking-detail">
-                                <strong>Check-out:</strong> 11:00 AM
-                            </div>
-                        </div>
-                        
-                        <div class="booking-card">
-                            <h3>Stay Requirements</h3>
-                            <div class="booking-detail">
-                                <strong>Minimum stay:</strong> 4 nights
-                            </div>
-                            <div class="booking-detail">
-                                <strong>Long-term discount:</strong> 25% reduction for stays over 28 days
-                            </div>
-                        </div>
-                        
-                        <div class="booking-card">
-                            <h3>House Rules</h3>
-                            <div class="booking-detail">
-                                <i class="fas fa-times"></i> No pets
-                            </div>
-                            <div class="booking-detail">
-                                <i class="fas fa-ban"></i> No smoking
-                            </div>
-                            <div class="booking-detail">
-                                <i class="fas fa-child"></i> Not suitable for children
-                            </div>
-                        </div>
-                        
-                        <div class="booking-card">
-                            <h3>Contact Louise</h3>
-                            <p>Please phone Louise on <a href="tel:+447786074606">07786074606</a> to enquire about booking.</p>
-                            <p>Alternatively email on <a href="mailto:louisejainwoods@yahoo.co.uk">louisejainwoods@yahoo.co.uk</a></p>
-                        </div>
-                    </div>
-                </div>
+      <section id="gallery" class="gallery">
+        <div class="container">
+          <h2 class="section-title">Photo Gallery</h2>
+          <p class="gallery-subtitle">Take a virtual tour of The Loft Godalming</p>
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <img src="assets/images/living-room-woodburner.jpg" alt="Cozy living room with traditional woodburner and comfortable seating" loading="lazy">
+              <div class="gallery-caption">Living Room with Woodburner</div>
             </div>
-        </section>
+            <div class="gallery-item">
+              <img src="assets/images/bedroom-bed.jpg" alt="Comfortable bedroom with modern furnishings" loading="lazy">
+              <div class="gallery-caption">Comfortable Bedroom</div>
+            </div>
+            <div class="gallery-item">
+              <img src="assets/images/bathroom-vanity.jpg" alt="Modern bathroom with stylish vanity and mirror" loading="lazy">
+              <div class="gallery-caption">Modern Bathroom</div>
+            </div>
+            <div class="gallery-item">
+              <img src="assets/images/kitchen-area.jpg" alt="Well-equipped kitchen area with modern appliances" loading="lazy">
+              <div class="gallery-caption">Kitchen Area</div>
+            </div>
+            <div class="gallery-item">
+              <img src="assets/images/bathroom-shower.jpg" alt="Stylish shower room with contemporary design" loading="lazy">
+              <div class="gallery-caption">Shower Room</div>
+            </div>
+            <div class="gallery-item">
+                <picture>
+                    <source srcset="assets/images/countryside-view.webp" type="image/webp">
+                    <img src="assets/images/countryside-view.jpg" alt="Beautiful countryside views from the loft" loading="lazy">
+                </picture>
+                <div class="gallery-caption">Countryside Views</div>
+            </div>
+            <div class="gallery-item">
+                <picture>
+                    <source srcset="assets/images/living-room.webp" type="image/webp">
+                    <img src="assets/images/living-room.jpg" alt="Spacious living area showing the open plan design" loading="lazy">
+                </picture>
+                <div class="gallery-caption">Spacious Living Area</div>
+            </div>
+            <div class="gallery-item">
+                <picture>
+                    <source srcset="assets/images/property-exterior.webp" type="image/webp">
+                    <img src="assets/images/property-exterior.jpg" alt="Exterior view of The Loft Godalming property" loading="lazy">
+                </picture>
+                <div class="gallery-caption">Property Exterior</div>
+            </div>
+            <div class="gallery-item">
+              <img src="assets/images/accommodation-space.jpg" alt="Bright interior spaces with natural light" loading="lazy">
+              <div class="gallery-caption">Bright Interior</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
         <section id="location" class="location">
             <div class="container">
@@ -331,8 +371,14 @@
                         <p>Our loft is perfectly positioned to give you the best of both worlds - the tranquility of countryside living with easy access to Godalming's vibrant town centre.</p>
                         
                         <div class="location-images">
-                            <img src="assets/images/loft-entrance.jpg" alt="Exterior view of the property and surrounding area" class="location-image">
-                            <img src="assets/images/outdoor-space.jpg" alt="Outdoor garden space and grounds" class="location-image">
+                            <picture>
+                                <source srcset="assets/images/loft-entrance.webp" type="image/webp">
+                                <img src="assets/images/loft-entrance.jpg" alt="Exterior view of the property and surrounding area" class="location-image" loading="lazy">
+                            </picture>
+                            <picture>
+                                <source srcset="assets/images/outdoor-space.webp" type="image/webp">
+                                <img src="assets/images/outdoor-space.jpg" alt="Outdoor garden space and grounds" class="location-image" loading="lazy">
+                            </picture>
                         </div>
                         
                         <h4>Nearby Amenities:</h4>
@@ -406,18 +452,31 @@
                 <div class="footer-info">
                     <h3>The Loft Godalming</h3>
                     <p>Modern self-contained accommodation in the heart of Surrey</p>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+44-7786-074606">07786 074606</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:louisejainwoods@yahoo.co.uk">louisejainwoods@yahoo.co.uk</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Godalming, Surrey, UK</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="footer-links">
                     <a href="#home">Home</a>
-                    <a href="#gallery">Gallery</a>
-                    <a href="#features">Features</a>
-                    <a href="#amenities">Amenities</a>
                     <a href="#booking-info">Booking</a>
+                    <a href="#features-amenities">Features & Amenities</a>
+                    <a href="#gallery">Gallery</a>
                     <a href="#contact">Contact</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 The Loft Godalming. All rights reserved.</p>
+                <p>&copy; 2025 The Loft Godalming. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -433,6 +492,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.min.js"></script>
 </body>
 </html>
