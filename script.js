@@ -79,6 +79,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const mobileMenuButton = document.createElement('button');
         mobileMenuButton.className = 'mobile-menu-button';
         mobileMenuButton.innerHTML = '☰';
+        mobileMenuButton.setAttribute('aria-label', 'Toggle navigation menu');
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+        mobileMenuButton.setAttribute('aria-controls', 'nav-menu');
         mobileMenuButton.style.display = 'none';
         mobileMenuButton.style.background = 'none';
         mobileMenuButton.style.border = 'none';
@@ -88,11 +91,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Insert button before nav menu
         const navMenu = document.querySelector('.nav-menu');
+        navMenu.setAttribute('id', 'nav-menu');
         navContainer.insertBefore(mobileMenuButton, navMenu);
         
         // Toggle mobile menu
         mobileMenuButton.addEventListener('click', function() {
-            navMenu.classList.toggle('mobile-menu-open');
+            const isOpen = navMenu.classList.toggle('mobile-menu-open');
+            mobileMenuButton.setAttribute('aria-expanded', isOpen.toString());
+            mobileMenuButton.innerHTML = isOpen ? '✕' : '☰';
         });
         
         // Show/hide mobile menu button based on screen size
@@ -159,13 +165,22 @@ function initializeLightbox() {
     let currentImageIndex = 0;
     let currentImageSet = [];
     
-    // Get all clickable images
-    const clickableImages = document.querySelectorAll('.gallery-item img, .feature-image, .location-image');
+    // Get all clickable images (now buttons)
+    const clickableImages = document.querySelectorAll('.gallery-image-button, .feature-image, .location-image');
     
     // Make images clickable and add cursor pointer style
-    clickableImages.forEach((img, index) => {
-        img.classList.add('clickable-image');
-        img.addEventListener('click', () => openLightbox(img, index));
+    clickableImages.forEach((element, index) => {
+        if (element.classList.contains('gallery-image-button')) {
+            // For gallery buttons, add click listener directly
+            element.addEventListener('click', () => {
+                const img = element.querySelector('img');
+                openLightbox(img, index);
+            });
+        } else {
+            // For other images, add clickable class and listener
+            element.classList.add('clickable-image');
+            element.addEventListener('click', () => openLightbox(element, index));
+        }
     });
     
     // Keyboard navigation
@@ -203,8 +218,8 @@ function initializeLightbox() {
     function openLightbox(clickedImage, index) {
         // Determine which set of images we're working with
         if (clickedImage.closest('.gallery-item')) {
-            // Gallery images
-            currentImageSet = document.querySelectorAll('.gallery-item img');
+            // Gallery images - get images from buttons
+            currentImageSet = document.querySelectorAll('.gallery-image-button img');
             currentImageIndex = Array.from(currentImageSet).indexOf(clickedImage);
         } else if (clickedImage.classList.contains('feature-image')) {
             // Feature images
@@ -228,8 +243,10 @@ function initializeLightbox() {
         // Add keyboard listener when lightbox opens
         addKeyboardListener();
         
-        // Focus management for accessibility
-        closeBtn.focus();
+        // Focus management for accessibility - focus the close button
+        setTimeout(() => {
+            closeBtn.focus();
+        }, 100);
     }
     
     function closeLightbox() {

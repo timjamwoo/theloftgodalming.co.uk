@@ -12,25 +12,29 @@
     <script src="https://kit.fontawesome.com/e0552412a4.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="header">
-        <nav class="navbar">
+    <!-- Skip Navigation Links for Keyboard Users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#navigation" class="skip-link">Skip to navigation</a>
+    
+    <header class="header" role="banner">
+        <nav class="navbar" id="navigation" role="navigation" aria-label="Main navigation">
             <div class="nav-container">
                 <h1 class="logo">The Loft Godalming</h1>
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                    <li><a href="#features" class="nav-link">Features</a></li>
-                    <li><a href="#amenities" class="nav-link">Amenities</a></li>
-                    <li><a href="#accommodation" class="nav-link">Details</a></li>
-                    <li><a href="#booking-info" class="nav-link">Booking</a></li>
-                    <li><a href="#location" class="nav-link">Location</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                <ul class="nav-menu" role="menubar">
+                    <li role="none"><a href="#home" class="nav-link" role="menuitem">Home</a></li>
+                    <li role="none"><a href="#gallery" class="nav-link" role="menuitem">Gallery</a></li>
+                    <li role="none"><a href="#features" class="nav-link" role="menuitem">Features</a></li>
+                    <li role="none"><a href="#amenities" class="nav-link" role="menuitem">Amenities</a></li>
+                    <li role="none"><a href="#accommodation" class="nav-link" role="menuitem">Details</a></li>
+                    <li role="none"><a href="#booking-info" class="nav-link" role="menuitem">Booking</a></li>
+                    <li role="none"><a href="#location" class="nav-link" role="menuitem">Location</a></li>
+                    <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content" role="main">
         <section id="home" class="hero">
             <div class="hero-background">
                 <img src="assets/images/hero-shot.jpg" alt="The Loft Godalming - Beautiful countryside accommodation" class="hero-bg-image">
@@ -59,54 +63,72 @@
             </div>
         </section>
 
-        <section id="gallery" class="gallery">
+        <section id="gallery" class="gallery" aria-labelledby="gallery-heading">
             <div class="container">
-                <h2 class="section-title">Photo Gallery</h2>
+                <h2 id="gallery-heading" class="section-title">Photo Gallery</h2>
                 <p class="gallery-subtitle">Take a virtual tour of The Loft Godalming</p>
-                <div class="gallery-grid">
+                <div class="gallery-grid" role="region" aria-label="Photo gallery of The Loft Godalming accommodation">
                     <div class="gallery-item">
-                        <img src="assets/images/living-room-woodburner.jpg" alt="Cozy living room with traditional woodburner and comfortable seating" loading="lazy">
+                        <button class="gallery-image-button" aria-label="Open image: Cozy living room with traditional woodburner and comfortable seating">
+                            <img src="assets/images/living-room-woodburner.jpg" alt="Cozy living room with traditional woodburner and comfortable seating" loading="lazy">
+                        </button>
                         <div class="gallery-caption">Living Room with Woodburner</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="assets/images/bedroom-bed.jpg" alt="Comfortable bedroom with modern furnishings" loading="lazy">
+                        <button class="gallery-image-button" aria-label="Open image: Comfortable bedroom with modern furnishings">
+                            <img src="assets/images/bedroom-bed.jpg" alt="Comfortable bedroom with modern furnishings" loading="lazy">
+                        </button>
                         <div class="gallery-caption">Comfortable Bedroom</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="assets/images/bathroom-vanity.jpg" alt="Modern bathroom with stylish vanity and mirror" loading="lazy">
+                        <button class="gallery-image-button" aria-label="Open image: Modern bathroom with stylish vanity and mirror">
+                            <img src="assets/images/bathroom-vanity.jpg" alt="Modern bathroom with stylish vanity and mirror" loading="lazy">
+                        </button>
                         <div class="gallery-caption">Modern Bathroom</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="assets/images/kitchen-area.jpg" alt="Well-equipped kitchen area with modern appliances" loading="lazy">
+                        <button class="gallery-image-button" aria-label="Open image: Well-equipped kitchen area with modern appliances">
+                            <img src="assets/images/kitchen-area.jpg" alt="Well-equipped kitchen area with modern appliances" loading="lazy">
+                        </button>
                         <div class="gallery-caption">Kitchen Area</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="assets/images/bathroom-shower.jpg" alt="Stylish shower room with contemporary design" loading="lazy">
+                        <button class="gallery-image-button" aria-label="Open image: Stylish shower room with contemporary design">
+                            <img src="assets/images/bathroom-shower.jpg" alt="Stylish shower room with contemporary design" loading="lazy">
+                        </button>
                         <div class="gallery-caption">Shower Room</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="assets/images/countryside-view.jpg" alt="Beautiful countryside views from the loft" loading="lazy">
+                        <button class="gallery-image-button" aria-label="Open image: Beautiful countryside views from the loft">
+                            <img src="assets/images/countryside-view.jpg" alt="Beautiful countryside views from the loft" loading="lazy">
+                        </button>
                         <div class="gallery-caption">Countryside Views</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="assets/images/living-room.jpg" alt="Spacious living area showing the open plan design" loading="lazy">
+                        <button class="gallery-image-button" aria-label="Open image: Spacious living area showing the open plan design">
+                            <img src="assets/images/living-room.jpg" alt="Spacious living area showing the open plan design" loading="lazy">
+                        </button>
                         <div class="gallery-caption">Spacious Living Area</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="assets/images/property-exterior.jpg" alt="Exterior view of The Loft Godalming property" loading="lazy">
+                        <button class="gallery-image-button" aria-label="Open image: Exterior view of The Loft Godalming property">
+                            <img src="assets/images/property-exterior.jpg" alt="Exterior view of The Loft Godalming property" loading="lazy">
+                        </button>
                         <div class="gallery-caption">Property Exterior</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="assets/images/accommodation-space.jpg" alt="Bright interior spaces with natural light" loading="lazy">
+                        <button class="gallery-image-button" aria-label="Open image: Bright interior spaces with natural light">
+                            <img src="assets/images/accommodation-space.jpg" alt="Bright interior spaces with natural light" loading="lazy">
+                        </button>
                         <div class="gallery-caption">Bright Interior</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="features" class="features">
+        <section id="features" class="features" aria-labelledby="features-heading">
             <div class="container">
-                <h2 class="section-title">What Makes The Loft Special</h2>
+                <h2 id="features-heading" class="section-title">What Makes The Loft Special</h2>
                 <div class="features-grid">
                     <div class="feature-card">
                         <img src="assets/images/sunny-kitchen.jpg" alt="Self-contained kitchen facilities" class="feature-image">
@@ -148,9 +170,9 @@
             </div>
         </section>
 
-        <section id="amenities" class="amenities">
+        <section id="amenities" class="amenities" aria-labelledby="amenities-heading">
             <div class="container">
-                <h2 class="section-title">Complete Amenities & Facilities</h2>
+                <h2 id="amenities-heading" class="section-title">Complete Amenities & Facilities</h2>
                 <div class="amenities-content">
                     <div class="amenities-grid">
                         <div class="amenity-category">
@@ -300,8 +322,8 @@
                         
                         <div class="booking-card">
                             <h3>Contact Louise</h3>
-                            <p>Please phone Louise on <a href="tel:+447786074606">07786074606</a> to enquire about booking.</p>
-                            <p>Alternatively email on <a href="mailto:louisejainwoods@yahoo.co.uk">louisejainwoods@yahoo.co.uk</a></p>
+                            <p>Please phone Louise on <a href="tel:+447786074606" aria-label="Call Louise at 07786 074606">07786074606</a> to enquire about booking.</p>
+                            <p>Alternatively email on <a href="mailto:louisejainwoods@yahoo.co.uk" aria-label="Email Louise at louisejainwoods@yahoo.co.uk">louisejainwoods@yahoo.co.uk</a></p>
                         </div>
                     </div>
                 </div>
@@ -359,10 +381,10 @@
                         
                         <div class="contact-details">
                             <div class="contact-item">
-                                <strong>Phone:</strong> <a href="tel:+447786074606">07786 074606</a>
+                                <strong>Phone:</strong> <a href="tel:+447786074606" aria-label="Call Louise at 07786 074606">07786 074606</a>
                             </div>
                             <div class="contact-item">
-                                <strong>Email:</strong> <a href="mailto:louisejainwoods@yahoo.co.uk">louisejainwoods@yahoo.co.uk</a>
+                                <strong>Email:</strong> <a href="mailto:louisejainwoods@yahoo.co.uk" aria-label="Email Louise at louisejainwoods@yahoo.co.uk">louisejainwoods@yahoo.co.uk</a>
                             </div>
                             <div class="contact-item">
                                 <strong>Location:</strong> Godalming, Surrey, UK
@@ -386,7 +408,7 @@
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
@@ -409,13 +431,13 @@
     </footer>
 
     <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox" role="dialog" aria-label="Image lightbox" aria-hidden="true">
+    <div id="lightbox" class="lightbox" role="dialog" aria-label="Image lightbox" aria-hidden="true" aria-modal="true">
         <div class="lightbox-content">
-            <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
-            <button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button>
+            <button class="lightbox-close" aria-label="Close lightbox" type="button">&times;</button>
+            <button class="lightbox-nav lightbox-prev" aria-label="Previous image" type="button">&#8249;</button>
             <img class="lightbox-image" src="" alt="" />
-            <div class="lightbox-caption"></div>
-            <button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button>
+            <div class="lightbox-caption" role="status" aria-live="polite"></div>
+            <button class="lightbox-nav lightbox-next" aria-label="Next image" type="button">&#8250;</button>
         </div>
     </div>
 
