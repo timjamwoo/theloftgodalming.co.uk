@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenuButton.style.border = 'none';
         mobileMenuButton.style.fontSize = '1.5rem';
         mobileMenuButton.style.cursor = 'pointer';
-        mobileMenuButton.style.color = '#2c5530';
+        mobileMenuButton.style.color = '#1a4d2e';
         
         // Insert button before nav menu
         const navMenu = document.querySelector('.nav-menu');
@@ -314,7 +314,7 @@ const mobileMenuStyles = `
         }
         
         .nav-link.active {
-            color: #2c5530;
+            color: #1a4d2e;
             font-weight: 600;
         }
     }

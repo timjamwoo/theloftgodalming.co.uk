@@ -6,10 +6,14 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: #2c3e2d;
     scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
 }
 
 .container {
@@ -45,7 +49,7 @@ body {
 .logo {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #2c5530;
+    color: #1a4d2e;
 }
 
 .nav-menu {
@@ -56,13 +60,13 @@ body {
 
 .nav-link {
     text-decoration: none;
-    color: #333;
+    color: #2c3e2d;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #2c5530;
+    color: #1a4d2e;
 }
 
 /* Hero Section */
@@ -97,7 +101,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+    background: linear-gradient(135deg, rgba(26, 77, 46, 0.8) 0%, rgba(101, 67, 33, 0.8) 100%);
     z-index: -1;
 }
 
@@ -151,6 +155,11 @@ body {
 
 .highlight-icon {
     font-size: 2.5rem;
+    color: #f8f6f0;
+}
+
+.highlight-icon i {
+    color: #f8f6f0;
 }
 
 .highlight-text {
@@ -162,7 +171,7 @@ body {
 /* Features Section */
 .features {
     padding: 80px 0;
-    background: #f8f9fa;
+    background: #f8f6f0;
 }
 
 .section-title {
@@ -170,7 +179,7 @@ body {
     font-size: 2.5rem;
     font-weight: 600;
     margin-bottom: 3rem;
-    color: #2c5530;
+    color: #1a4d2e;
 }
 
 .features-grid {
@@ -205,6 +214,11 @@ body {
 .feature-icon {
     font-size: 2rem;
     margin: 1.5rem 0 1rem;
+    color: #1a4d2e;
+}
+
+.feature-icon i {
+    color: #1a4d2e;
 }
 
 .feature-card h3,
@@ -220,7 +234,7 @@ body {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #2c5530;
+    color: #1a4d2e;
 }
 
 .feature-card p {
@@ -243,13 +257,13 @@ body {
 
 .location-text h3 {
     font-size: 1.5rem;
-    color: #2c5530;
+    color: #1a4d2e;
     margin-bottom: 1rem;
 }
 
 .location-text h4 {
     font-size: 1.25rem;
-    color: #2c5530;
+    color: #1a4d2e;
     margin: 2rem 0 1rem;
 }
 
@@ -264,6 +278,12 @@ body {
     line-height: 1.6;
 }
 
+.amenities-list li i {
+    color: #1a4d2e;
+    margin-right: 0.5rem;
+    width: 1.2rem;
+}
+
 .location-info {
     display: flex;
     flex-direction: column;
@@ -271,14 +291,14 @@ body {
 }
 
 .info-card {
-    background: #f8f9fa;
+    background: #f8f6f0;
     padding: 1.5rem;
     border-radius: 12px;
-    border-left: 4px solid #2c5530;
+    border-left: 4px solid #1a4d2e;
 }
 
 .info-card h4 {
-    color: #2c5530;
+    color: #1a4d2e;
     margin-bottom: 1rem;
     font-size: 1.1rem;
 }
@@ -289,7 +309,7 @@ body {
 }
 
 .info-card strong {
-    color: #333;
+    color: #2c3e2d;
 }
 
 /* Amenities Section */
@@ -309,14 +329,14 @@ body {
 }
 
 .amenity-category {
-    background: #f8f9fa;
+    background: #f8f6f0;
     padding: 2rem;
     border-radius: 12px;
-    border-left: 4px solid #2c5530;
+    border-left: 4px solid #1a4d2e;
 }
 
 .amenity-category h3 {
-    color: #2c5530;
+    color: #1a4d2e;
     margin-bottom: 1.5rem;
     font-size: 1.25rem;
     font-weight: 600;
@@ -337,14 +357,14 @@ body {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #2c5530;
+    color: #1a4d2e;
     font-weight: bold;
 }
 
 /* Accommodation Section */
 .accommodation {
     padding: 80px 0;
-    background: #f8f9fa;
+    background: #f8f6f0;
 }
 
 .accommodation-content {
@@ -365,7 +385,7 @@ body {
 }
 
 .accommodation-card h3 {
-    color: #2c5530;
+    color: #1a4d2e;
     margin-bottom: 1rem;
     font-size: 1.25rem;
     font-weight: 600;
@@ -398,14 +418,14 @@ body {
 }
 
 .booking-card {
-    background: #f8f9fa;
+    background: #f8f6f0;
     padding: 2rem;
     border-radius: 12px;
-    border-top: 4px solid #2c5530;
+    border-top: 4px solid #1a4d2e;
 }
 
 .booking-card h3 {
-    color: #2c5530;
+    color: #1a4d2e;
     margin-bottom: 1.5rem;
     font-size: 1.25rem;
     font-weight: 600;
@@ -417,8 +437,14 @@ body {
     line-height: 1.6;
 }
 
+.booking-detail i {
+    color: #1a4d2e;
+    margin-right: 0.5rem;
+    width: 1.2rem;
+}
+
 .booking-detail strong {
-    color: #333;
+    color: #2c3e2d;
     display: inline-block;
     min-width: 120px;
 }
@@ -430,7 +456,7 @@ body {
 }
 
 .booking-card a {
-    color: #2c5530;
+    color: #1a4d2e;
     text-decoration: none;
     font-weight: 500;
 }
@@ -457,7 +483,7 @@ body {
 /* Contact Section */
 .contact {
     padding: 80px 0;
-    background: #f8f9fa;
+    background: #f8f6f0;
 }
 
 .contact-content {
@@ -469,7 +495,7 @@ body {
 
 .contact-info h3 {
     font-size: 1.5rem;
-    color: #2c5530;
+    color: #1a4d2e;
     margin-bottom: 1rem;
 }
 
@@ -489,7 +515,7 @@ body {
 }
 
 .contact-item a {
-    color: #2c5530;
+    color: #1a4d2e;
     text-decoration: none;
 }
 
@@ -505,7 +531,7 @@ body {
 }
 
 .booking-highlights h4 {
-    color: #2c5530;
+    color: #1a4d2e;
     margin-bottom: 1rem;
     font-size: 1.25rem;
 }
@@ -520,9 +546,15 @@ body {
     line-height: 1.6;
 }
 
+.booking-highlights li i {
+    color: #1a4d2e;
+    margin-right: 0.5rem;
+    width: 1.2rem;
+}
+
 /* Footer */
 .footer {
-    background: #2c5530;
+    background: #1a4d2e;
     color: white;
     padding: 40px 0 20px;
 }
@@ -688,9 +720,9 @@ body {
     padding: 1rem;
     background: white;
     font-weight: 500;
-    color: #2c5530;
+    color: #1a4d2e;
     text-align: center;
-    border-top: 3px solid #f8f9fa;
+    border-top: 3px solid #f8f6f0;
 }
 
 @media (max-width: 480px) {
