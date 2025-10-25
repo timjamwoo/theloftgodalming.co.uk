@@ -1,3 +1,10 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Ensure all images are responsive and don't cause overflow */
 img {
     max-width: 100%;
@@ -13,11 +20,11 @@ img {
     object-position: center;
 }
 
-/* Prevent any element from causing horizontal scroll */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Prevent specific content elements from causing horizontal scroll */
+.container,
+.hero-content,
+.nav-container,
+.footer-content {
     max-width: 100%;
 }
 
@@ -630,6 +637,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 2rem;
     justify-content: flex-end;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .footer-links a {
@@ -788,7 +796,7 @@ h1, h2, h3, h4, h5, h6 {
         height: 200px;
     }
 
-    /* Better touch targets for mobile */
+    /* Better touch targets for mobile - minimum 44px for accessibility */
     .nav-link,
     .book-now-btn,
     .booking-card a,
@@ -978,9 +986,9 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0 10px;
     }
 
-    /* Smaller touch targets for very small screens but still accessible */
+    /* Maintain accessibility standards even on very small screens */
     .nav-link {
-        min-height: 40px;
+        min-height: 44px;
         padding: 0.5rem 1rem;
     }
 
@@ -1276,9 +1284,9 @@ html {
     }
     
     .book-now-btn {
-        padding: 10px 12px;
-        font-size: 0.85rem;
-        min-height: 40px;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        min-height: 44px;
     }
     
     .subsection-title {
