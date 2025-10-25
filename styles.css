@@ -5,11 +5,36 @@
     box-sizing: border-box;
 }
 
+/* Ensure all images are responsive and don't cause overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.hero-bg-image,
+.feature-image,
+.location-image,
+.gallery-item img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Prevent specific content elements from causing horizontal scroll */
+.container,
+.hero-content,
+.nav-container,
+.footer-content {
+    max-width: 100%;
+}
+
 body {
     font-family: 'Source Sans Pro', sans-serif;
     line-height: 1.6;
     color: #2c3e2d;
     scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    word-wrap: break-word; /* Handle long words properly */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -615,6 +640,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 2rem;
     justify-content: flex-end;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .footer-links a {
@@ -635,14 +661,79 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0.7;
 }
 
+/* Mobile Menu Button */
+.mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #1a4d2e;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu-button:hover {
+    background-color: rgba(26, 77, 46, 0.1);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+    .mobile-menu-button {
+        display: block;
+    }
+
     .nav-menu {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        gap: 0;
+    }
+
+    .nav-menu.mobile-menu-open {
+        display: flex;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 0.75rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background-color: rgba(26, 77, 46, 0.1);
+    }
+
+    .nav-menu li:last-child .nav-link {
+        border-bottom: none;
+    }
+
+    .nav-container {
+        position: relative;
     }
     
     .hero-title {
         font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
     }
     
     .hero-highlights {
@@ -686,6 +777,8 @@ h1, h2, h3, h4, h5, h6 {
     
     .footer-links {
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
     
     .hero-highlights {
@@ -704,6 +797,27 @@ h1, h2, h3, h4, h5, h6 {
     
     .gallery-item img {
         height: 200px;
+    }
+
+    /* Better touch targets for mobile - minimum 44px for accessibility */
+    .nav-link,
+    .book-now-btn,
+    .booking-card a,
+    .contact-item a,
+    .footer-contact .contact-item a {
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Improve readability on mobile */
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Ensure no horizontal overflow */
+    body {
+        overflow-x: hidden;
     }
     
     .reviews-grid {
@@ -895,6 +1009,57 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.3rem;
 }
 
+/* Tablet responsive design */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 2.25rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .amenities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .booking-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-menu {
+        gap: 1.5rem;
+    }
+
+    .footer-links {
+        gap: 1.5rem;
+    }
+}
+
+/* Small tablet adjustments */
+@media (max-width: 1024px) {
+    .hero {
+        padding: 100px 0 70px;
+    }
+
+    .hero-content {
+        padding: 0 30px;
+    }
+}
+
 @media (max-width: 480px) {
     .hero {
         padding: 100px 0 60px;
@@ -902,10 +1067,17 @@ h1, h2, h3, h4, h5, h6 {
     
     .hero-title {
         font-size: 1.75rem;
+        line-height: 1.1;
     }
     
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
     }
     
     .features,
@@ -914,6 +1086,10 @@ h1, h2, h3, h4, h5, h6 {
     .booking-info,
     .location,
     .contact {
+        padding: 60px 0;
+    }
+
+    .features-amenities {
         padding: 60px 0;
     }
     
@@ -936,6 +1112,43 @@ h1, h2, h3, h4, h5, h6 {
     
     .feature-image {
         height: 180px;
+    }
+
+    .gallery-item img {
+        height: 180px;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
+    /* Maintain accessibility standards even on very small screens */
+    .nav-link {
+        min-height: 44px;
+        padding: 0.5rem 1rem;
+    }
+
+    /* More compact spacing */
+    .hero-highlights {
+        gap: 1rem;
+    }
+
+    .highlight-number,
+    .highlight-icon {
+        font-size: 1.75rem;
+    }
+
+    .highlight-text {
+        font-size: 0.8rem;
+    }
+
+    /* Adjust grid gaps for very small screens */
+    .features-grid,
+    .amenities-grid,
+    .accommodation-description,
+    .booking-grid,
+    .gallery-grid {
+        gap: 1rem;
     }
 }
 
@@ -1182,8 +1395,9 @@ html {
     }
     
     .book-now-btn {
-        padding: 10px 16px;
+        padding: 12px 16px;
         font-size: 0.9rem;
+        min-height: 44px;
     }
     
     .book-now-btn span {
@@ -1197,5 +1411,23 @@ html {
     .subsection-title {
         font-size: 1.6rem;
         margin: 2rem 0 1.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .sticky-book-now {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .book-now-btn {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        min-height: 44px;
+    }
+    
+    .subsection-title {
+        font-size: 1.5rem;
+        margin: 1.5rem 0 1rem 0;
     }
 }
