@@ -324,3 +324,23 @@ const mobileMenuStyles = `
 const styleSheet = document.createElement('style');
 styleSheet.textContent = mobileMenuStyles;
 document.head.appendChild(styleSheet);
+
+// Google Maps location functionality
+function openGoogleMaps() {
+    const mapsUrl = 'https://www.google.com/maps/search/Godalming+Surrey+UK/@51.1854,-0.6165,14z';
+    window.open(mapsUrl, '_blank');
+}
+
+// Initialize map functionality when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    const mapButton = document.querySelector('.map-placeholder');
+    if (mapButton) {
+        mapButton.addEventListener('click', openGoogleMaps);
+        mapButton.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openGoogleMaps();
+            }
+        });
+    }
+});
