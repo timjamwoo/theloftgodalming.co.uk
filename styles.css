@@ -1,3 +1,51 @@
+/* Focus indicators for accessibility */
+.nav-link:focus,
+.book-now-btn:focus,
+.booking-card a:focus,
+.contact-item a:focus,
+.footer-contact .contact-item a:focus,
+.airbnb-link:focus,
+.clickable-image:focus {
+    outline: 3px solid #1a4d2e;
+    outline-offset: 2px;
+}
+
+.skip-nav:focus {
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* Improved touch targets for accessibility */
+.nav-link,
+.book-now-btn,
+.booking-card a,
+.contact-item a,
+.footer-contact .contact-item a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Skip navigation link for accessibility */
+.skip-nav {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #1a4d2e;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 2000;
+    font-weight: 600;
+    transition: top 0.3s ease;
+}
+
+.skip-nav:focus {
+    top: 6px;
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -1212,7 +1260,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .review-date {
-    color: #999;
+    color: #666;
     font-size: 0.9rem;
 }
 
@@ -1234,7 +1282,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    background: #ff5a5f;
+    background: #d43333;
     color: white;
     text-decoration: none;
     padding: 1rem 2rem;
@@ -1245,9 +1293,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .airbnb-link:hover {
-    background: #e04348;
+    background: #b82a2f;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(255, 90, 95, 0.3);
+    box-shadow: 0 4px 15px rgba(212, 51, 51, 0.3);
 }
 
 .airbnb-link i {
