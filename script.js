@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+                
+                // Announce navigation to screen readers
+                announceToScreenReader(`Navigated to ${this.textContent} section`);
             }
         });
     });
@@ -41,10 +44,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
                 if (activeLink) {
                     activeLink.classList.add('active');
+                    // Update aria-current for accessibility
+                    navLinks.forEach(link => link.removeAttribute('aria-current'));
+                    activeLink.setAttribute('aria-current', 'page');
                 }
             }
         });
     });
+    
+    // Screen reader announcement function
+    function announceToScreenReader(message) {
+        const announcement = document.createElement('div');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.setAttribute('aria-atomic', 'true');
+        announcement.setAttribute('class', 'sr-only');
+        announcement.textContent = message;
+        document.body.appendChild(announcement);
+        
+        setTimeout(() => {
+            document.body.removeChild(announcement);
+        }, 1000);
+    }
     
     // Add fade-in animation for feature cards when they come into view
     const observerOptions = {
@@ -78,21 +98,44 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create mobile menu button
         const mobileMenuButton = document.createElement('button');
         mobileMenuButton.className = 'mobile-menu-button';
-        mobileMenuButton.innerHTML = '☰';
+        mobileMenuButton.innerHTML = '<span class="sr-only">Toggle main menu</span>☰';
         mobileMenuButton.style.display = 'none';
         mobileMenuButton.style.background = 'none';
         mobileMenuButton.style.border = 'none';
         mobileMenuButton.style.fontSize = '1.5rem';
         mobileMenuButton.style.cursor = 'pointer';
         mobileMenuButton.style.color = '#1a4d2e';
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+        mobileMenuButton.setAttribute('aria-controls', 'main-menu');
         
         // Insert button before nav menu
         const navMenu = document.querySelector('.nav-menu');
+        navMenu.setAttribute('id', 'main-menu');
         navContainer.insertBefore(mobileMenuButton, navMenu);
         
         // Toggle mobile menu
         mobileMenuButton.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
             navMenu.classList.toggle('mobile-menu-open');
+            
+            // Update button text for screen readers
+            const statusText = !isExpanded ? 'Close main menu' : 'Open main menu';
+            this.querySelector('.sr-only').textContent = statusText;
+            
+            // Announce state change
+            announceToScreenReader(`Main menu ${!isExpanded ? 'opened' : 'closed'}`);
+        });
+        
+        // Close menu when clicking on a nav link (mobile)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('mobile-menu-open');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenuButton.querySelector('.sr-only').textContent = 'Open main menu';
+                }
+            });
         });
         
         // Show/hide mobile menu button based on screen size
@@ -104,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileMenuButton.style.display = 'none';
                 navMenu.style.display = 'flex';
                 navMenu.classList.remove('mobile-menu-open');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
             }
         }
         
