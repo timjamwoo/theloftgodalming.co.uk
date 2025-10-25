@@ -139,11 +139,22 @@ document.addEventListener('DOMContentLoaded', function() {
 // Lightbox functionality
 function initializeLightbox() {
     const lightbox = document.getElementById('lightbox');
+    if (!lightbox) {
+        console.warn('Lightbox element not found');
+        return;
+    }
+    
     const lightboxImage = lightbox.querySelector('.lightbox-image');
     const lightboxCaption = lightbox.querySelector('.lightbox-caption');
     const closeBtn = lightbox.querySelector('.lightbox-close');
     const prevBtn = lightbox.querySelector('.lightbox-prev');
     const nextBtn = lightbox.querySelector('.lightbox-next');
+    
+    // Check if all required elements are present
+    if (!lightboxImage || !lightboxCaption || !closeBtn || !prevBtn || !nextBtn) {
+        console.warn('Required lightbox elements not found');
+        return;
+    }
     
     let currentImageIndex = 0;
     let currentImageSet = [];
@@ -156,6 +167,38 @@ function initializeLightbox() {
         img.classList.add('clickable-image');
         img.addEventListener('click', () => openLightbox(img, index));
     });
+    
+    // Keyboard navigation
+    let keydownHandler = null;
+    
+    function addKeyboardListener() {
+        if (keydownHandler) return; // Prevent duplicate listeners
+        
+        keydownHandler = (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            switch(e.key) {
+                case 'Escape':
+                    closeLightbox();
+                    break;
+                case 'ArrowLeft':
+                    if (currentImageSet.length > 1) showPrevImage();
+                    break;
+                case 'ArrowRight':
+                    if (currentImageSet.length > 1) showNextImage();
+                    break;
+            }
+        };
+        
+        document.addEventListener('keydown', keydownHandler);
+    }
+    
+    function removeKeyboardListener() {
+        if (keydownHandler) {
+            document.removeEventListener('keydown', keydownHandler);
+            keydownHandler = null;
+        }
+    }
     
     function openLightbox(clickedImage, index) {
         // Determine which set of images we're working with
@@ -182,6 +225,9 @@ function initializeLightbox() {
         lightbox.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
         
+        // Add keyboard listener when lightbox opens
+        addKeyboardListener();
+        
         // Focus management for accessibility
         closeBtn.focus();
     }
@@ -190,6 +236,9 @@ function initializeLightbox() {
         lightbox.classList.remove('active');
         lightbox.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        
+        // Remove keyboard listener when lightbox closes
+        removeKeyboardListener();
     }
     
     function updateLightboxImage() {
@@ -240,23 +289,6 @@ function initializeLightbox() {
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
             closeLightbox();
-        }
-    });
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
-        
-        switch(e.key) {
-            case 'Escape':
-                closeLightbox();
-                break;
-            case 'ArrowLeft':
-                if (currentImageSet.length > 1) showPrevImage();
-                break;
-            case 'ArrowRight':
-                if (currentImageSet.length > 1) showNextImage();
-                break;
         }
     });
 }
