@@ -62,7 +62,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(announcement);
         
         setTimeout(() => {
-            document.body.removeChild(announcement);
+            // Check if element still exists before removing
+            if (announcement && announcement.parentNode) {
+                document.body.removeChild(announcement);
+            }
         }, 1000);
     }
     
@@ -272,8 +275,9 @@ function initializeLightbox() {
         // Add keyboard listener when lightbox opens
         addKeyboardListener();
         
-        // Focus management for accessibility
-        closeBtn.focus();
+        // Focus management for accessibility - focus the lightbox container for better context
+        lightbox.setAttribute('tabindex', '-1');
+        lightbox.focus();
     }
     
     function closeLightbox() {
