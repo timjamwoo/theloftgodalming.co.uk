@@ -158,10 +158,6 @@ h1, h2, h3, h4, h5, h6 {
     color: #f8f6f0;
 }
 
-.highlight-icon i {
-    color: #f8f6f0;
-}
-
 .highlight-text {
     font-size: 0.9rem;
     opacity: 0.9;
@@ -214,10 +210,6 @@ h1, h2, h3, h4, h5, h6 {
 .feature-icon {
     font-size: 2rem;
     margin: 1.5rem 0 1rem;
-    color: #1a4d2e;
-}
-
-.feature-icon i {
     color: #1a4d2e;
 }
 
@@ -276,12 +268,6 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.5rem 0;
     color: #666;
     line-height: 1.6;
-}
-
-.amenities-list li i {
-    color: #1a4d2e;
-    margin-right: 0.5rem;
-    width: 1.2rem;
 }
 
 .location-info {
@@ -437,12 +423,6 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.6;
 }
 
-.booking-detail i {
-    color: #1a4d2e;
-    margin-right: 0.5rem;
-    width: 1.2rem;
-}
-
 .booking-detail strong {
     color: #2c3e2d;
     display: inline-block;
@@ -544,12 +524,6 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.5rem 0;
     color: #666;
     line-height: 1.6;
-}
-
-.booking-highlights li i {
-    color: #1a4d2e;
-    margin-right: 0.5rem;
-    width: 1.2rem;
 }
 
 /* Footer */
