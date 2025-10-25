@@ -354,10 +354,57 @@
                 <h2 class="section-title">Book Your Stay</h2>
                 <div class="contact-content">
                     <div class="contact-info">
-                        <h3>Ready to Experience The Loft?</h3>
-                        <p>Get in touch to check availability and book your stay in our beautiful Godalming loft. We're here to help make your visit to Surrey memorable.</p>
+                        <h3>Send Us an Enquiry</h3>
+                        <p>Fill out the form below to check availability and book your stay in our beautiful Godalming loft. We'll get back to you as soon as possible.</p>
+                        
+                        <!-- Contact Form -->
+                        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xpzybqgj" method="POST">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message" id="name-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" id="email-error"></span>
+                            </div>
+                            
+                            <div class="form-group form-group-dates">
+                                <div class="date-input-group">
+                                    <label for="check-in">Check-in Date *</label>
+                                    <input type="date" id="check-in" name="check-in" required>
+                                    <span class="error-message" id="check-in-error"></span>
+                                </div>
+                                <div class="date-input-group">
+                                    <label for="check-out">Check-out Date *</label>
+                                    <input type="date" id="check-out" name="check-out" required>
+                                    <span class="error-message" id="check-out-error"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Please tell us about your stay requirements, any special requests, or questions you may have..." required></textarea>
+                                <span class="error-message" id="message-error"></span>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <span class="btn-text">Send Enquiry</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                        
+                        <!-- Success/Error Messages -->
+                        <div id="form-message" class="form-message" style="display: none;"></div>
+                        
+                        <div class="contact-divider">
+                            <span>OR</span>
+                        </div>
                         
                         <div class="contact-details">
+                            <h4>Contact Louise Directly</h4>
                             <div class="contact-item">
                                 <strong>Phone:</strong> <a href="tel:+447786074606">07786 074606</a>
                             </div>
@@ -380,6 +427,16 @@
                             <li><i class="fas fa-check"></i> Free parking (subject to availability)</li>
                             <li><i class="fas fa-check"></i> Welcome pack with local information</li>
                         </ul>
+                        
+                        <div class="booking-note">
+                            <h4>Booking Information:</h4>
+                            <ul>
+                                <li><strong>Minimum stay:</strong> 4 nights</li>
+                                <li><strong>Check-in:</strong> From 3:00 PM</li>
+                                <li><strong>Check-out:</strong> 11:00 AM</li>
+                                <li><strong>Guests:</strong> Maximum 2 people</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
