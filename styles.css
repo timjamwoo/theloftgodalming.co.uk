@@ -308,6 +308,90 @@ h1, h2, h3, h4, h5, h6 {
     color: #666;
 }
 
+/* Map Container Styles */
+.map-container {
+    margin: 2rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(26, 77, 46, 0.1);
+    position: relative;
+    height: 400px;
+}
+
+.map-container iframe {
+    display: block;
+    border-radius: 12px;
+}
+
+.map-placeholder {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f8f6f0 0%, #e8e6e0 100%);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.map-placeholder:hover {
+    background: linear-gradient(135deg, #f0ede5 0%, #e0ddd5 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.map-content {
+    text-align: center;
+    color: #1a4d2e;
+    z-index: 2;
+    position: relative;
+}
+
+.map-pin {
+    font-size: 3rem;
+    color: #1a4d2e;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+.map-content h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.map-content p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.map-overlay iframe {
+    opacity: 0.1;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
 .info-card strong {
     color: #2c3e2d;
 }
@@ -625,6 +709,23 @@ h1, h2, h3, h4, h5, h6 {
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .map-container {
+        height: 300px;
+        margin: 1.5rem 0;
+    }
+    
+    .map-content h4 {
+        font-size: 1.25rem;
+    }
+    
+    .map-content p {
+        font-size: 0.9rem;
+    }
+    
+    .map-pin {
+        font-size: 2.5rem;
     }
     
 
