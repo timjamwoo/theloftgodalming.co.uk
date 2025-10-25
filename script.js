@@ -115,6 +115,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize mobile menu
     createMobileMenu();
     
+    // Initialize contact form
+    initializeContactForm();
+    
     // Initialize lightbox functionality
     initializeLightbox();
     
@@ -324,3 +327,212 @@ const mobileMenuStyles = `
 const styleSheet = document.createElement('style');
 styleSheet.textContent = mobileMenuStyles;
 document.head.appendChild(styleSheet);
+
+// Contact Form Functionality
+function initializeContactForm() {
+    const form = document.getElementById('contact-form');
+    const submitBtn = form.querySelector('.submit-btn');
+    const formMessage = document.getElementById('form-message');
+    
+    if (!form) {
+        console.warn('Contact form not found');
+        return;
+    }
+    
+    // Set minimum date to today
+    const today = new Date().toISOString().split('T')[0];
+    const checkInInput = document.getElementById('check-in');
+    const checkOutInput = document.getElementById('check-out');
+    
+    checkInInput.min = today;
+    checkOutInput.min = today;
+    
+    // Helper function for consistent date parsing
+    function parseDate(dateString) {
+        return new Date(dateString + 'T00:00:00');
+    }
+    
+    // Update check-out min date when check-in changes
+    checkInInput.addEventListener('change', function() {
+        const checkInDate = parseDate(this.value);
+        const nextDay = new Date(checkInDate);
+        nextDay.setDate(checkInDate.getDate() + 1);
+        checkOutInput.min = nextDay.toISOString().split('T')[0];
+        
+        // Clear check-out if it's before new minimum
+        if (checkOutInput.value && parseDate(checkOutInput.value) <= checkInDate) {
+            checkOutInput.value = '';
+        }
+    });
+    
+    // Real-time validation
+    const inputs = form.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('blur', () => validateField(input));
+        input.addEventListener('input', () => clearFieldError(input));
+    });
+    
+    // Form submission
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        if (!validateForm()) {
+            return;
+        }
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.classList.add('loading');
+        hideMessage();
+        
+        try {
+            const formData = new FormData(form);
+            
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                showMessage('Thank you for your enquiry! We\'ll get back to you within 24 hours.', 'success');
+                form.reset();
+                // Reset date minimums
+                checkInInput.min = today;
+                checkOutInput.min = today;
+            } else {
+                throw new Error('Network response was not ok');
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            showMessage('Sorry, there was an error sending your message. Please try again or contact us directly.', 'error');
+        } finally {
+            // Reset button state
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('loading');
+        }
+    });
+    
+    function validateForm() {
+        let isValid = true;
+        
+        inputs.forEach(input => {
+            if (!validateField(input)) {
+                isValid = false;
+            }
+        });
+        
+        // Additional validation for date logic
+        const checkIn = parseDate(checkInInput.value);
+        const checkOut = parseDate(checkOutInput.value);
+        
+        if (checkInInput.value && checkOutInput.value) {
+            if (checkOut <= checkIn) {
+                showFieldError(checkOutInput, 'Check-out date must be after check-in date');
+                isValid = false;
+            }
+            
+            const daysDiff = Math.ceil((checkOut - checkIn) / (1000 * 60 * 60 * 24));
+            if (daysDiff < 4) {
+                showFieldError(checkOutInput, 'Minimum stay is 4 nights');
+                isValid = false;
+            }
+        }
+        
+        return isValid;
+    }
+    
+    function validateField(field) {
+        const value = field.value.trim();
+        const fieldType = field.type;
+        let isValid = true;
+        
+        // Clear previous errors
+        clearFieldError(field);
+        
+        // Required field validation
+        if (field.hasAttribute('required') && !value) {
+            showFieldError(field, 'This field is required');
+            return false;
+        }
+        
+        // Email validation
+        if (fieldType === 'email' && value) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(value)) {
+                showFieldError(field, 'Please enter a valid email address');
+                isValid = false;
+            }
+        }
+        
+        // Date validation
+        if (fieldType === 'date' && value) {
+            const selectedDate = parseDate(value);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            if (selectedDate < today) {
+                showFieldError(field, 'Date cannot be in the past');
+                isValid = false;
+            }
+        }
+        
+        // Name validation
+        if (field.id === 'name' && value) {
+            if (value.length < 2) {
+                showFieldError(field, 'Name must be at least 2 characters long');
+                isValid = false;
+            }
+        }
+        
+        // Message validation
+        if (field.id === 'message' && value) {
+            if (value.length < 10) {
+                showFieldError(field, 'Message must be at least 10 characters long');
+                isValid = false;
+            }
+        }
+        
+        return isValid;
+    }
+    
+    function showFieldError(field, message) {
+        field.classList.add('error');
+        const errorElement = document.getElementById(field.id + '-error');
+        if (errorElement) {
+            errorElement.textContent = message;
+        }
+    }
+    
+    function clearFieldError(field) {
+        field.classList.remove('error');
+        const errorElement = document.getElementById(field.id + '-error');
+        if (errorElement) {
+            errorElement.textContent = '';
+        }
+    }
+    
+    function showMessage(message, type) {
+        formMessage.textContent = message;
+        formMessage.className = `form-message ${type}`;
+        formMessage.style.display = 'block';
+        
+        // Scroll to message
+        formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Auto-hide success messages after 5 seconds
+        if (type === 'success') {
+            setTimeout(() => {
+                hideMessage();
+            }, 5000);
+        }
+    }
+    
+    function hideMessage() {
+        formMessage.style.display = 'none';
+        formMessage.className = 'form-message';
+        formMessage.textContent = '';
+    }
+}
