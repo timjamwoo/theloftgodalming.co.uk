@@ -347,15 +347,20 @@ function initializeContactForm() {
     checkInInput.min = today;
     checkOutInput.min = today;
     
+    // Helper function for consistent date parsing
+    function parseDate(dateString) {
+        return new Date(dateString + 'T00:00:00');
+    }
+    
     // Update check-out min date when check-in changes
     checkInInput.addEventListener('change', function() {
-        const checkInDate = new Date(this.value);
+        const checkInDate = parseDate(this.value);
         const nextDay = new Date(checkInDate);
         nextDay.setDate(checkInDate.getDate() + 1);
         checkOutInput.min = nextDay.toISOString().split('T')[0];
         
         // Clear check-out if it's before new minimum
-        if (checkOutInput.value && new Date(checkOutInput.value) <= checkInDate) {
+        if (checkOutInput.value && parseDate(checkOutInput.value) <= checkInDate) {
             checkOutInput.value = '';
         }
     });
@@ -420,8 +425,8 @@ function initializeContactForm() {
         });
         
         // Additional validation for date logic
-        const checkIn = new Date(checkInInput.value);
-        const checkOut = new Date(checkOutInput.value);
+        const checkIn = parseDate(checkInInput.value);
+        const checkOut = parseDate(checkOutInput.value);
         
         if (checkInInput.value && checkOutInput.value) {
             if (checkOut <= checkIn) {
@@ -464,7 +469,7 @@ function initializeContactForm() {
         
         // Date validation
         if (fieldType === 'date' && value) {
-            const selectedDate = new Date(value);
+            const selectedDate = parseDate(value);
             const today = new Date();
             today.setHours(0, 0, 0, 0);
             
