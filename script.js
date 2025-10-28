@@ -542,6 +542,10 @@ function initializeContactForm() {
 
 // Availability Calendar Functionality
 function initializeAvailabilityCalendar() {
+    // Configuration constants
+    const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+    const CALENDAR_GRID_SIZE = 6 * 7; // 6 rows × 7 days = 42 cells
+    
     // DOM elements
     const calendarContainer = document.getElementById('availability-calendar');
     const calendarDays = document.getElementById('calendar-days');
@@ -620,8 +624,7 @@ function initializeAvailabilityCalendar() {
             if (cached) {
                 const { data, timestamp } = JSON.parse(cached);
                 const now = Date.now();
-                const cacheAge = 24 * 60 * 60 * 1000; // 24 hours
-                if (now - timestamp < cacheAge) {
+                if (now - timestamp < CACHE_DURATION) {
                     return data;
                 }
             }
@@ -706,6 +709,13 @@ function initializeAvailabilityCalendar() {
         return bookedDates.has(date.toDateString());
     }
     
+    // Safely navigate to a new month/year
+    function navigateToMonth(year, month) {
+        // Create a new date object to avoid mutations
+        const newDate = new Date(year, month, 1);
+        currentDate = newDate;
+    }
+    
     // Render the calendar
     function renderCalendar() {
         // Update the month/year display
@@ -755,7 +765,7 @@ function initializeAvailabilityCalendar() {
         
         // Add trailing days from next month
         const totalCells = calendarDays.children.length;
-        const remainingCells = 42 - totalCells; // 6 rows × 7 days = 42 cells
+        const remainingCells = CALENDAR_GRID_SIZE - totalCells;
         
         for (let day = 1; day <= Math.min(remainingCells, 14); day++) {
             const dayElement = document.createElement('div');
@@ -768,14 +778,18 @@ function initializeAvailabilityCalendar() {
     // Navigate to previous month
     function goToPreviousMonth() {
         if (isLoading) return;
-        currentDate.setMonth(currentDate.getMonth() - 1);
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth() - 1;
+        navigateToMonth(year, month);
         renderCalendar();
     }
     
     // Navigate to next month
     function goToNextMonth() {
         if (isLoading) return;
-        currentDate.setMonth(currentDate.getMonth() + 1);
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth() + 1;
+        navigateToMonth(year, month);
         renderCalendar();
     }
     
