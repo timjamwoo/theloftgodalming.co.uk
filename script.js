@@ -121,6 +121,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize lightbox functionality
     initializeLightbox();
     
+    // Initialize availability calendar
+    initializeAvailabilityCalendar();
+    
     // Add loading animation
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease';
@@ -535,4 +538,269 @@ function initializeContactForm() {
         formMessage.className = 'form-message';
         formMessage.textContent = '';
     }
+}
+
+// Availability Calendar Functionality
+function initializeAvailabilityCalendar() {
+    // DOM elements
+    const calendarContainer = document.getElementById('availability-calendar');
+    const calendarDays = document.getElementById('calendar-days');
+    const currentMonthElement = document.getElementById('current-month');
+    const prevMonthBtn = document.getElementById('prev-month');
+    const nextMonthBtn = document.getElementById('next-month');
+    const loadingElement = document.getElementById('calendar-loading');
+    const errorElement = document.getElementById('calendar-error');
+    
+    if (!calendarContainer) {
+        console.log('Calendar container not found, skipping calendar initialization');
+        return;
+    }
+    
+    // Calendar state
+    let currentDate = new Date();
+    let bookedDates = new Set();
+    let isLoading = false;
+    
+    // Month names
+    const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    
+    // Mock some booked dates for demo purposes (in real environment, this would be fetched from Airbnb)
+    function initializeMockBookedDates() {
+        const today = new Date();
+        const mockBookedDates = [
+            // Add some sample booked dates for demonstration
+            new Date(today.getFullYear(), today.getMonth(), 15),
+            new Date(today.getFullYear(), today.getMonth(), 16),
+            new Date(today.getFullYear(), today.getMonth(), 17),
+            new Date(today.getFullYear(), today.getMonth() + 1, 5),
+            new Date(today.getFullYear(), today.getMonth() + 1, 6),
+            new Date(today.getFullYear(), today.getMonth() + 1, 7),
+            new Date(today.getFullYear(), today.getMonth() + 1, 8),
+        ];
+        
+        mockBookedDates.forEach(date => {
+            bookedDates.add(date.toDateString());
+        });
+    }
+    
+    // Show loading state
+    function showLoading() {
+        isLoading = true;
+        loadingElement.style.display = 'block';
+        errorElement.style.display = 'none';
+        calendarContainer.style.opacity = '0.7';
+    }
+    
+    // Hide loading state
+    function hideLoading() {
+        isLoading = false;
+        loadingElement.style.display = 'none';
+        calendarContainer.style.opacity = '1';
+    }
+    
+    // Show error state
+    function showError() {
+        hideLoading();
+        errorElement.style.display = 'block';
+    }
+    
+    // Create cache key with date for daily cache busting
+    function getCacheKey() {
+        const today = new Date().toDateString();
+        return `airbnb_ical_${today}`;
+    }
+    
+    // Get cached data
+    function getCachedData() {
+        try {
+            const cached = localStorage.getItem(getCacheKey());
+            if (cached) {
+                const { data, timestamp } = JSON.parse(cached);
+                const now = Date.now();
+                const cacheAge = 24 * 60 * 60 * 1000; // 24 hours
+                if (now - timestamp < cacheAge) {
+                    return data;
+                }
+            }
+        } catch (error) {
+            console.warn('Error reading cache:', error);
+        }
+        return null;
+    }
+    
+    // Cache data
+    function setCachedData(data) {
+        try {
+            const cacheData = {
+                data: data,
+                timestamp: Date.now()
+            };
+            localStorage.setItem(getCacheKey(), JSON.stringify(cacheData));
+        } catch (error) {
+            console.warn('Error writing cache:', error);
+        }
+    }
+    
+    // Attempt to fetch availability data from Airbnb
+    async function fetchAvailabilityData() {
+        // Check cache first
+        const cachedData = getCachedData();
+        if (cachedData) {
+            bookedDates = new Set(cachedData);
+            renderCalendar();
+            return;
+        }
+        
+        showLoading();
+        
+        try {
+            // For production, this would attempt to fetch the iCal feed
+            // For now, we'll use mock data and show a message
+            console.log('Would fetch from: https://www.airbnb.co.uk/calendar/ical/18808847.ics?s=bc68cf4b3b7e6e752d4b9af1c1a0b00e');
+            
+            // Simulate loading delay
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            // Initialize mock data for demonstration
+            initializeMockBookedDates();
+            
+            // Cache the mock data
+            setCachedData(Array.from(bookedDates));
+            
+            hideLoading();
+            renderCalendar();
+            
+        } catch (error) {
+            console.error('Error fetching availability data:', error);
+            showError();
+            
+            // Still render the calendar without booking data
+            bookedDates = new Set();
+            renderCalendar();
+        }
+    }
+    
+    // Get the first day of the month (0 = Sunday, 1 = Monday, etc.)
+    function getFirstDayOfMonth(date) {
+        return new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+    }
+    
+    // Get the number of days in a month
+    function getDaysInMonth(date) {
+        return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    }
+    
+    // Check if a date is today
+    function isToday(date) {
+        const today = new Date();
+        return date.getDate() === today.getDate() &&
+               date.getMonth() === today.getMonth() &&
+               date.getFullYear() === today.getFullYear();
+    }
+    
+    // Check if a date is booked
+    function isDateBooked(date) {
+        return bookedDates.has(date.toDateString());
+    }
+    
+    // Render the calendar
+    function renderCalendar() {
+        // Update the month/year display
+        currentMonthElement.textContent = `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+        
+        // Clear existing calendar days
+        calendarDays.innerHTML = '';
+        
+        // Get calendar information
+        const firstDay = getFirstDayOfMonth(currentDate);
+        const daysInMonth = getDaysInMonth(currentDate);
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+        
+        // Get previous month info for leading days
+        const prevMonth = new Date(year, month - 1, 0);
+        const daysInPrevMonth = prevMonth.getDate();
+        
+        // Add leading days from previous month
+        for (let i = firstDay - 1; i >= 0; i--) {
+            const dayElement = document.createElement('div');
+            dayElement.className = 'calendar-day other-month';
+            dayElement.textContent = daysInPrevMonth - i;
+            calendarDays.appendChild(dayElement);
+        }
+        
+        // Add days of current month
+        for (let day = 1; day <= daysInMonth; day++) {
+            const date = new Date(year, month, day);
+            const dayElement = document.createElement('div');
+            dayElement.className = 'calendar-day';
+            dayElement.textContent = day;
+            
+            // Add appropriate classes
+            if (isToday(date)) {
+                dayElement.classList.add('today');
+            } else if (isDateBooked(date)) {
+                dayElement.classList.add('booked');
+                dayElement.title = 'Not available - booked on Airbnb';
+            } else {
+                dayElement.classList.add('available');
+                dayElement.title = 'Available for booking';
+            }
+            
+            calendarDays.appendChild(dayElement);
+        }
+        
+        // Add trailing days from next month
+        const totalCells = calendarDays.children.length;
+        const remainingCells = 42 - totalCells; // 6 rows × 7 days = 42 cells
+        
+        for (let day = 1; day <= Math.min(remainingCells, 14); day++) {
+            const dayElement = document.createElement('div');
+            dayElement.className = 'calendar-day other-month';
+            dayElement.textContent = day;
+            calendarDays.appendChild(dayElement);
+        }
+    }
+    
+    // Navigate to previous month
+    function goToPreviousMonth() {
+        if (isLoading) return;
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        renderCalendar();
+    }
+    
+    // Navigate to next month
+    function goToNextMonth() {
+        if (isLoading) return;
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        renderCalendar();
+    }
+    
+    // Event listeners
+    if (prevMonthBtn) {
+        prevMonthBtn.addEventListener('click', goToPreviousMonth);
+    }
+    
+    if (nextMonthBtn) {
+        nextMonthBtn.addEventListener('click', goToNextMonth);
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!calendarContainer.contains(document.activeElement)) return;
+        
+        if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            goToPreviousMonth();
+        } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            goToNextMonth();
+        }
+    });
+    
+    // Initialize the calendar
+    fetchAvailabilityData();
 }
