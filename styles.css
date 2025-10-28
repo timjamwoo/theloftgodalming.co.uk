@@ -659,6 +659,10 @@ h2 {
     text-align: center;
 }
 
+.features-description{
+  text-align: center;
+}
+
 .booking-banner-btn {
     display: inline-flex;
     align-items: center;
