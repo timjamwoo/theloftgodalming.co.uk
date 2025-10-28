@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Earthbound';
+  src: url('assets/fonts/Earthbound-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Focus indicators for accessibility */
 .nav-link:focus,
 .book-now-btn:focus,
@@ -6,7 +14,7 @@
 .footer-contact .contact-item a:focus,
 .airbnb-link:focus,
 .clickable-image:focus {
-    outline: 3px solid #1a4d2e;
+    outline: 3px solid #344E41;
     outline-offset: 2px;
 }
 
@@ -32,8 +40,8 @@
     position: absolute;
     top: -40px;
     left: 6px;
-    background: #1a4d2e;
-    color: white;
+    background: #344E41;
+    color: #F7F6F2;
     padding: 8px 16px;
     text-decoration: none;
     border-radius: 4px;
@@ -86,9 +94,12 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Earthbound', serif;
 }
 
+h2 {
+    letter-spacing: 2px;  
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -97,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Header and Navigation */
 .header {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(245, 239, 223, 0.95);
     backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
@@ -122,7 +133,7 @@ h1, h2, h3, h4, h5, h6 {
 .logo {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #1a4d2e;
+    color: #344E41;
 }
 
 .nav-menu {
@@ -139,13 +150,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link:hover {
-    color: #1a4d2e;
+    color: #344E41;
 }
 
 /* Hero Section */
 .hero {
     position: relative;
-    color: white;
+    color: #F7F6F2;
     padding: 120px 0 80px;
     text-align: center;
     overflow: hidden;
@@ -229,11 +240,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .highlight-icon {
     font-size: 2.5rem;
-    color: #f8f6f0;
+    color: #E2DED0;
 }
 
 .highlight-icon i {
-    color: #f8f6f0;
+    color: #E2DED0;
 }
 
 .highlight-text {
@@ -245,12 +256,12 @@ h1, h2, h3, h4, h5, h6 {
 /* Features Section */
 .features {
     padding: 80px 0;
-    background: #f8f6f0;
+    background: #E2DED0;
 }
 
 .features-amenities {
     padding: 80px 0;
-    background: #f8f6f0;
+    background: #E2DED0;
 }
 
 .section-title {
@@ -258,7 +269,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2.5rem;
     font-weight: 600;
     margin-bottom: 3rem;
-    color: #1a4d2e;
+    color: #344E41;
 }
 
 .features-grid {
@@ -269,7 +280,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .feature-card {
-    background: white;
+    background: #F7F6F2;
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -293,11 +304,11 @@ h1, h2, h3, h4, h5, h6 {
 .feature-icon {
     font-size: 2rem;
     margin: 1.5rem 0 1rem;
-    color: #1a4d2e;
+    color: #344E41;
 }
 
 .feature-icon i {
-    color: #1a4d2e;
+    color: #344E41;
 }
 
 .feature-card h3,
@@ -313,7 +324,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #1a4d2e;
+    color: #344E41;
 }
 
 .feature-card p {
@@ -324,7 +335,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Location Section */
 .location {
     padding: 80px 0;
-    background: white;
+    background: #F7F6F2;
 }
 
 /* Google Maps Container */
@@ -343,13 +354,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .map-link {
-    background: #1a4d2e;
+    background: #344E41;
     padding: 1rem;
     text-align: center;
 }
 
 .map-link a {
-    color: white;
+    color: #F7F6F2;
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
@@ -376,13 +387,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .location-text h3 {
     font-size: 1.5rem;
-    color: #1a4d2e;
+    color: #344E41;
     margin-bottom: 1rem;
 }
 
 .location-text h4 {
     font-size: 1.25rem;
-    color: #1a4d2e;
+    color: #344E41;
     margin: 2rem 0 1rem;
 }
 
@@ -398,7 +409,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .amenities-list li i {
-    color: #1a4d2e;
+    color: #344E41;
     margin-right: 0.5rem;
     width: 1.2rem;
 }
@@ -410,14 +421,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .info-card {
-    background: #f8f6f0;
+    background: #E2DED0;
     padding: 1.5rem;
     border-radius: 12px;
-    border-left: 4px solid #1a4d2e;
+    border-left: 4px solid #344E41;
 }
 
 .info-card h4 {
-    color: #1a4d2e;
+    color: #344E41;
     margin-bottom: 1rem;
     font-size: 1.1rem;
 }
@@ -434,7 +445,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Amenities Section */
 .amenities {
     padding: 80px 0;
-    background: white;
+    background: #F7F6F2;
 }
 
 .amenities-content {
@@ -448,14 +459,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .amenity-category {
-    background: #f8f6f0;
+    background: #E2DED0;
     padding: 2rem;
     border-radius: 12px;
-    border-left: 4px solid #1a4d2e;
+    border-left: 4px solid #344E41;
 }
 
 .amenity-category h3 {
-    color: #1a4d2e;
+    color: #344E41;
     margin-bottom: 1.5rem;
     font-size: 1.25rem;
     font-weight: 600;
@@ -476,14 +487,14 @@ h1, h2, h3, h4, h5, h6 {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #1a4d2e;
+    color: #344E41;
     font-weight: bold;
 }
 
 /* Accommodation Section */
 .accommodation {
     padding: 80px 0;
-    background: #f8f6f0;
+    background: #E2DED0;
 }
 
 .accommodation-content {
@@ -497,14 +508,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .accommodation-card {
-    background: white;
+    background: #F7F6F2;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .accommodation-card h3 {
-    color: #1a4d2e;
+    color: #344E41;
     margin-bottom: 1rem;
     font-size: 1.25rem;
     font-weight: 600;
@@ -523,7 +534,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Booking Info Section */
 .booking-info {
     padding: 80px 0;
-    background: white;
+    background: #F7F6F2;
 }
 
 .booking-content {
@@ -537,14 +548,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .booking-card {
-    background: #f8f6f0;
+    background: #E2DED0;
     padding: 2rem;
     border-radius: 12px;
-    border-top: 4px solid #1a4d2e;
+    border-top: 4px solid #344E41;
 }
 
 .booking-card h3 {
-    color: #1a4d2e;
+    color: #344E41;
     margin-bottom: 1.5rem;
     font-size: 1.25rem;
     font-weight: 600;
@@ -557,7 +568,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .booking-detail i {
-    color: #1a4d2e;
+    color: #344E41;
     margin-right: 0.5rem;
     width: 1.2rem;
 }
@@ -575,7 +586,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .booking-card a {
-    color: #1a4d2e;
+    color: #344E41;
     text-decoration: none;
     font-weight: 500;
 }
@@ -602,8 +613,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Booking Banner Section */
 .booking-banner {
     padding: 60px 0;
-    background: linear-gradient(135deg, #1a4d2e 0%, #2d6b3e 100%);
-    color: white;
+    background: linear-gradient(135deg, #344E41 0%, #344e41 100%);
+    color: #F7F6F2;
 }
 
 .booking-banner-content {
@@ -615,9 +626,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .booking-banner-title {
     font-size: 2.5rem;
-    font-family: 'Playfair Display', serif;
     margin-bottom: 1rem;
-    color: white;
+    color: #F7F6F2;
 }
 
 .booking-banner-subtitle {
@@ -653,8 +663,9 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    background: white;
-    color: #1a4d2e;
+    background: #EEECE8;
+    color: #344E41;
+    font-family: 'Earthbound', serif;
     padding: 1rem 2rem;
     border-radius: 8px;
     text-decoration: none;
@@ -668,7 +679,7 @@ h1, h2, h3, h4, h5, h6 {
 .booking-banner-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    background: #f8f6f0;
+    background: #E2DED0;
 }
 
 .booking-banner-note {
@@ -678,7 +689,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .booking-banner-note a {
-    color: white;
+    color: #F7F6F2;
     text-decoration: underline;
 }
 
@@ -689,7 +700,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Contact Section */
 .contact {
     padding: 80px 0;
-    background: #f8f6f0;
+    background: #E2DED0;
 }
 
 .contact-content {
@@ -701,7 +712,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .contact-info h3 {
     font-size: 1.5rem;
-    color: #1a4d2e;
+    color: #344E41;
     margin-bottom: 1rem;
 }
 
@@ -720,7 +731,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-item a {
-    color: #1a4d2e;
+    color: #344E41;
     text-decoration: none;
 }
 
@@ -729,18 +740,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-item a {
-  color: #f8f6f0;
+  color: #E2DED0;
 }
 
 .booking-highlights {
-    background: white;
+    background: #F7F6F2;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .booking-highlights h4 {
-    color: #1a4d2e;
+    color: #344E41;
     margin-bottom: 1rem;
     font-size: 1.25rem;
 }
@@ -756,14 +767,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .booking-highlights li i {
-    color: #1a4d2e;
+    color: #344E41;
     margin-right: 0.5rem;
     width: 1.2rem;
 }
 
 /* Contact Form Styles */
 .contact-form {
-    background: white;
+    background: #F7F6F2;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -777,7 +788,7 @@ h1, h2, h3, h4, h5, h6 {
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #1a4d2e;
+    color: #344E41;
     font-weight: 500;
 }
 
@@ -795,7 +806,7 @@ h1, h2, h3, h4, h5, h6 {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #1a4d2e;
+    border-color: #344E41;
 }
 
 .form-group input.error,
@@ -823,12 +834,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .submit-btn {
-    background: #1a4d2e;
-    color: white;
+    background: #344E41;
+    color: #F7F6F2;
     border: none;
     padding: 1rem 2rem;
     border-radius: 6px;
     font-size: 1rem;
+    font-family: 'Earthbound', serif;
     font-weight: 500;
     cursor: pointer;
     display: flex;
@@ -859,7 +871,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 16px;
     height: 16px;
     border: 2px solid transparent;
-    border-top: 2px solid white;
+    border-top: 2px solid #F7F6F2;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -905,14 +917,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-divider span {
-    background: #f8f6f0;
+    background: #E2DED0;
     padding: 0 1rem;
     color: #666;
     font-weight: 500;
 }
 
 .contact-details h4 {
-    color: #1a4d2e;
+    color: #344E41;
     margin-bottom: 1rem;
     font-size: 1.25rem;
 }
@@ -924,7 +936,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .booking-note h4 {
-    color: #1a4d2e;
+    color: #344E41;
     margin-bottom: 1rem;
     font-size: 1.1rem;
 }
@@ -940,15 +952,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .booking-note li i {
-    color: #1a4d2e;
+    color: #344E41;
     margin-right: 0.5rem;
     width: 1.2rem;
 }
 
 /* Footer */
 .footer {
-    background: #1a4d2e;
-    color: white;
+    background: #344E41;
+    color: #F7F6F2;
     padding: 40px 0 20px;
 }
 
@@ -975,7 +987,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
-    color: white;
+    color: #F7F6F2;
 }
 
 .footer-contact .contact-item i {
@@ -985,7 +997,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-contact .contact-item a {
-    color: white;
+    color: #F7F6F2;
     text-decoration: none;
     opacity: 0.9;
     transition: opacity 0.3s ease;
@@ -1004,7 +1016,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-links a {
-    color: white;
+    color: #F7F6F2;
     text-decoration: none;
     opacity: 0.8;
     transition: opacity 0.3s ease;
@@ -1028,7 +1040,7 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: #1a4d2e;
+    color: #344E41;
     padding: 0.5rem;
     border-radius: 4px;
     transition: background-color 0.3s ease;
@@ -1229,7 +1241,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Gallery Section */
 .gallery {
     padding: 80px 0;
-    background: white;
+    background: #F7F6F2;
 }
 
 .gallery-subtitle {
@@ -1255,7 +1267,7 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: white;
+    background: #F7F6F2;
 }
 
 .gallery-item:hover {
@@ -1273,17 +1285,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .gallery-caption {
     padding: 1rem;
-    background: white;
+    background: #F7F6F2;
     font-weight: 500;
-    color: #1a4d2e;
+    color: #344E41;
     text-align: center;
-    border-top: 3px solid #f8f6f0;
+    border-top: 3px solid #E2DED0;
 }
 
 /* Reviews Section */
 .reviews {
     padding: 80px 0;
-    background: #f8f6f0;
+    background: #E2DED0;
 }
 
 .reviews-subtitle {
@@ -1304,12 +1316,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .review-card {
-    background: white;
+    background: #F7F6F2;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 4px solid #1a4d2e;
+    border-top: 4px solid #344E41;
 }
 
 .review-card:hover {
@@ -1342,7 +1354,7 @@ h1, h2, h3, h4, h5, h6 {
 .review-text::before {
     content: '"';
     font-size: 2rem;
-    color: #1a4d2e;
+    color: #344E41;
     opacity: 0.3;
     position: absolute;
     left: -0.5rem;
@@ -1356,7 +1368,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .review-author strong {
-    color: #1a4d2e;
+    color: #344E41;
     font-weight: 600;
     display: block;
     margin-bottom: 0.25rem;
@@ -1370,7 +1382,7 @@ h1, h2, h3, h4, h5, h6 {
 .reviews-cta {
     text-align: center;
     padding: 2rem;
-    background: white;
+    background: #F7F6F2;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -1385,8 +1397,9 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    background: #d43333;
-    color: white;
+    background: #3A5A40;
+    color: #F7F6F2;
+    font-family: 'Earthbound', serif;
     text-decoration: none;
     padding: 1rem 2rem;
     border-radius: 8px;
@@ -1635,7 +1648,7 @@ html {
     bottom: -40px;
     left: 0;
     right: 0;
-    color: white;
+    color: #F7F6F2;
     text-align: center;
     font-size: 1.1rem;
     font-weight: 500;
@@ -1648,7 +1661,7 @@ html {
     position: absolute;
     top: -50px;
     right: 0;
-    color: white;
+    color: #F7F6F2;
     font-size: 2rem;
     font-weight: bold;
     cursor: pointer;
@@ -1671,7 +1684,7 @@ html {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: white;
+    color: #F7F6F2;
     font-size: 2rem;
     font-weight: bold;
     cursor: pointer;
@@ -1763,9 +1776,10 @@ html {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: #1a4d2e;
-    color: white;
+    background: #344E41;
+    color: #F7F6F2;
     padding: 12px 20px;
+    font-family: 'Earthbound', serif;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
@@ -1778,7 +1792,7 @@ html {
     background: #15432a;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(26, 77, 46, 0.4);
-    color: white;
+    color: #F7F6F2;
 }
 
 .book-now-btn i {
@@ -1788,7 +1802,7 @@ html {
 /* Subsection titles for combined sections */
 .subsection-title {
     font-size: 2rem;
-    color: #1a4d2e;
+    color: #344E41;
     text-align: center;
     margin: 3rem 0 2rem 0;
     font-weight: 600;
@@ -1796,7 +1810,7 @@ html {
 
 .features-amenities .subsection-title:first-of-type {
     margin-top: 1rem;
-    background: #f8f6f0;
+    background: #E2DED0;
 }
 
 /* Mobile responsive adjustments for sticky button */
