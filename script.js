@@ -562,6 +562,8 @@ function initializeAvailabilityCalendar() {
     const checkInDisplay = document.getElementById('check-in-display');
     const checkOutDisplay = document.getElementById('check-out-display');
     const clearDatesBtn = document.getElementById('clear-dates');
+    const dateWarning = document.getElementById('date-warning');
+    const dateWarningText = document.getElementById('date-warning-text');
     
     if (!calendarContainer) {
         console.log('Calendar container not found, skipping calendar initialization');
@@ -751,8 +753,45 @@ function initializeAvailabilityCalendar() {
         selectedStartDate = null;
         selectedEndDate = null;
         isSelectingRange = false;
+        hideDateWarning();
         updateDateDisplay();
         renderCalendar();
+    }
+    
+    // Show date warning
+    function showDateWarning(message) {
+        if (dateWarning && dateWarningText) {
+            dateWarningText.textContent = message;
+            dateWarning.style.display = 'flex';
+        }
+    }
+    
+    // Hide date warning
+    function hideDateWarning() {
+        if (dateWarning) {
+            dateWarning.style.display = 'none';
+        }
+    }
+    
+    // Calculate number of nights between two dates
+    function calculateNights(startDate, endDate) {
+        const timeDiff = endDate.getTime() - startDate.getTime();
+        return Math.ceil(timeDiff / (1000 * 3600 * 24));
+    }
+    
+    // Validate minimum stay requirement
+    function validateMinimumStay(startDate, endDate) {
+        const nights = calculateNights(startDate, endDate);
+        const minNights = 4;
+        
+        if (nights < minNights) {
+            const message = `Minimum stay is ${minNights} nights. Your selection is ${nights} night${nights === 1 ? '' : 's'}. Please select a longer stay.`;
+            showDateWarning(message);
+            return false;
+        }
+        
+        hideDateWarning();
+        return true;
     }
     
     // Update the date display
@@ -792,6 +831,7 @@ function initializeAvailabilityCalendar() {
             selectedStartDate = new Date(date);
             selectedEndDate = null;
             isSelectingRange = true;
+            hideDateWarning(); // Clear any previous warnings
         } else if (selectedStartDate && !selectedEndDate) {
             // Complete the range
             if (date < selectedStartDate) {
@@ -807,6 +847,15 @@ function initializeAvailabilityCalendar() {
             if (hasBookedDatesInRange(selectedStartDate, selectedEndDate)) {
                 alert('Your selected range includes booked dates. Please select different dates.');
                 clearDateSelection();
+                return;
+            }
+            
+            // Validate minimum stay requirement
+            if (!validateMinimumStay(selectedStartDate, selectedEndDate)) {
+                // Warning is shown by validateMinimumStay function
+                // Don't clear selection, just show warning
+                updateDateDisplay();
+                renderCalendar();
                 return;
             }
         }
