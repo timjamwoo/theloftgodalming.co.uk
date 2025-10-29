@@ -541,7 +541,6 @@ function initializeContactForm() {
 }
 
 // Availability Calendar Functionality
-
 function initializeAvailabilityCalendar() {
     // Configuration constants
     const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
@@ -556,15 +555,6 @@ function initializeAvailabilityCalendar() {
     const loadingElement = document.getElementById('calendar-loading');
     const errorElement = document.getElementById('calendar-error');
     
-    // Date selection elements
-    const checkInInput = document.getElementById('check-in');
-    const checkOutInput = document.getElementById('check-out');
-    const checkInDisplay = document.getElementById('check-in-display');
-    const checkOutDisplay = document.getElementById('check-out-display');
-    const clearDatesBtn = document.getElementById('clear-dates');
-    const dateWarning = document.getElementById('date-warning');
-    const dateWarningText = document.getElementById('date-warning-text');
-    
     if (!calendarContainer) {
         console.log('Calendar container not found, skipping calendar initialization');
         return;
@@ -574,16 +564,12 @@ function initializeAvailabilityCalendar() {
     let currentDate = new Date();
     let bookedDates = new Set();
     let isLoading = false;
-    let selectedStartDate = null;
-    let selectedEndDate = null;
-    let isSelectingRange = false;
     
     // Month names
     const monthNames = [
         'January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December'
     ];
-        
     
     // Show loading state
     function showLoading() {
@@ -642,7 +628,7 @@ function initializeAvailabilityCalendar() {
         }
     }
     
-    // Attempt to fetch availability data from Airbnb
+    // Attempt to fetch availability data from generated JSON file
     async function fetchAvailabilityData() {
         // Check cache first
         const cachedData = getCachedData();
@@ -651,11 +637,11 @@ function initializeAvailabilityCalendar() {
             renderCalendar();
             return;
         }
-        
+
         showLoading();
-        
+
         try {
-            // For production, this would attempt to fetch the iCal feed
+            // Fetch pre-parsed Airbnb calendar data from static JSON file
             const response = await fetch('data/airbnb-calendar.json', {
                 cache: 'no-store' // always get the latest
             });
@@ -674,16 +660,16 @@ function initializeAvailabilityCalendar() {
                     bookedDates.add(d.toDateString());
                 }
             });
-            // Cache the mock data
+
+            // Cache the data locally
             setCachedData(Array.from(bookedDates));
-            
+
             hideLoading();
             renderCalendar();
-            
         } catch (error) {
             console.error('Error fetching availability data:', error);
             showError();
-            
+
             // Still render the calendar without booking data
             bookedDates = new Set();
             renderCalendar();
@@ -711,166 +697,6 @@ function initializeAvailabilityCalendar() {
     // Check if a date is booked
     function isDateBooked(date) {
         return bookedDates.has(date.toDateString());
-    }
-    
-    // Check if a date is in the past
-    function isPastDate(date) {
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        return date < today;
-    }
-    
-    // Check if a date is available for selection
-    function isDateAvailable(date) {
-        return !isDateBooked(date) && !isPastDate(date);
-    }
-    
-    // Format date for display
-    function formatDateForDisplay(date) {
-        return date.toLocaleDateString('en-GB', {
-            weekday: 'short',
-            month: 'short',
-            day: 'numeric'
-        });
-    }
-    
-    // Format date for form input (YYYY-MM-DD)
-    function formatDateForInput(date) {
-        return date.toISOString().split('T')[0];
-    }
-    
-    // Clear date selection
-    function clearDateSelection() {
-        selectedStartDate = null;
-        selectedEndDate = null;
-        isSelectingRange = false;
-        hideDateWarning();
-        updateDateDisplay();
-        renderCalendar();
-    }
-    
-    // Show date warning
-    function showDateWarning(message) {
-        if (dateWarning && dateWarningText) {
-            dateWarningText.textContent = message;
-            dateWarning.style.display = 'flex';
-        }
-    }
-    
-    // Hide date warning
-    function hideDateWarning() {
-        if (dateWarning) {
-            dateWarning.style.display = 'none';
-        }
-    }
-    
-    // Calculate number of nights between two dates
-    function calculateNights(startDate, endDate) {
-        const timeDiff = endDate.getTime() - startDate.getTime();
-        return Math.ceil(timeDiff / (1000 * 3600 * 24));
-    }
-    
-    // Validate minimum stay requirement
-    function validateMinimumStay(startDate, endDate) {
-        const nights = calculateNights(startDate, endDate);
-        const minNights = 4;
-        
-        if (nights < minNights) {
-            const message = `Minimum stay is ${minNights} nights. Your selection is ${nights} night${nights === 1 ? '' : 's'}. Please select a longer stay.`;
-            showDateWarning(message);
-            return false;
-        }
-        
-        hideDateWarning();
-        return true;
-    }
-    
-    // Update the date display
-    function updateDateDisplay() {
-        if (selectedStartDate) {
-            checkInDisplay.textContent = formatDateForDisplay(selectedStartDate);
-            checkInInput.value = formatDateForInput(selectedStartDate);
-        } else {
-            checkInDisplay.textContent = 'Select start date';
-            checkInInput.value = '';
-        }
-        
-        if (selectedEndDate) {
-            checkOutDisplay.textContent = formatDateForDisplay(selectedEndDate);
-            checkOutInput.value = formatDateForInput(selectedEndDate);
-        } else {
-            checkOutDisplay.textContent = 'Select end date';
-            checkOutInput.value = '';
-        }
-        
-        // Show/hide clear button
-        if (selectedStartDate || selectedEndDate) {
-            clearDatesBtn.style.display = 'block';
-        } else {
-            clearDatesBtn.style.display = 'none';
-        }
-    }
-    
-    // Handle date selection
-    function handleDateClick(date) {
-        if (!isDateAvailable(date)) {
-            return; // Can't select unavailable dates
-        }
-        
-        if (!selectedStartDate || (selectedStartDate && selectedEndDate)) {
-            // Start new selection
-            selectedStartDate = new Date(date);
-            selectedEndDate = null;
-            isSelectingRange = true;
-            hideDateWarning(); // Clear any previous warnings
-        } else if (selectedStartDate && !selectedEndDate) {
-            // Complete the range
-            if (date < selectedStartDate) {
-                // If selected date is before start date, swap them
-                selectedEndDate = selectedStartDate;
-                selectedStartDate = new Date(date);
-            } else {
-                selectedEndDate = new Date(date);
-            }
-            isSelectingRange = false;
-            
-            // Check if range includes any booked dates
-            if (hasBookedDatesInRange(selectedStartDate, selectedEndDate)) {
-                alert('Your selected range includes booked dates. Please select different dates.');
-                clearDateSelection();
-                return;
-            }
-            
-            // Validate minimum stay requirement
-            if (!validateMinimumStay(selectedStartDate, selectedEndDate)) {
-                // Warning is shown by validateMinimumStay function
-                // Don't clear selection, just show warning
-                updateDateDisplay();
-                renderCalendar();
-                return;
-            }
-        }
-        
-        updateDateDisplay();
-        renderCalendar();
-    }
-    
-    // Check if there are booked dates in the selected range
-    function hasBookedDatesInRange(startDate, endDate) {
-        const current = new Date(startDate);
-        while (current <= endDate) {
-            if (isDateBooked(current)) {
-                return true;
-            }
-            current.setDate(current.getDate() + 1);
-        }
-        return false;
-    }
-    
-    // Check if a date is in the selected range
-    function isDateInRange(date) {
-        if (!selectedStartDate || !selectedEndDate) return false;
-        return date >= selectedStartDate && date <= selectedEndDate;
     }
     
     // Safely navigate to a new month/year
@@ -916,33 +742,12 @@ function initializeAvailabilityCalendar() {
             // Add appropriate classes
             if (isToday(date)) {
                 dayElement.classList.add('today');
-            }
-            
-            if (isDateBooked(date)) {
+            } else if (isDateBooked(date)) {
                 dayElement.classList.add('booked');
                 dayElement.title = 'Not available - booked on Airbnb';
-            } else if (isPastDate(date)) {
-                dayElement.classList.add('other-month'); // Style past dates like other month
-                dayElement.title = 'Past date';
             } else {
                 dayElement.classList.add('available');
                 dayElement.title = 'Available for booking';
-                
-                // Add click handler for available dates
-                dayElement.addEventListener('click', () => handleDateClick(date));
-            }
-            
-            // Handle selection styling
-            if (selectedStartDate && date.toDateString() === selectedStartDate.toDateString()) {
-                dayElement.classList.add('selected', 'range-start');
-            }
-            if (selectedEndDate && date.toDateString() === selectedEndDate.toDateString()) {
-                dayElement.classList.add('selected', 'range-end');
-            }
-            if (selectedStartDate && selectedEndDate && isDateInRange(date) && 
-                date.toDateString() !== selectedStartDate.toDateString() && 
-                date.toDateString() !== selectedEndDate.toDateString()) {
-                dayElement.classList.add('in-range');
             }
             
             calendarDays.appendChild(dayElement);
@@ -987,10 +792,6 @@ function initializeAvailabilityCalendar() {
         nextMonthBtn.addEventListener('click', goToNextMonth);
     }
     
-    if (clearDatesBtn) {
-        clearDatesBtn.addEventListener('click', clearDateSelection);
-    }
-    
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (!calendarContainer.contains(document.activeElement)) return;
@@ -1001,9 +802,6 @@ function initializeAvailabilityCalendar() {
         } else if (e.key === 'ArrowRight') {
             e.preventDefault();
             goToNextMonth();
-        } else if (e.key === 'Escape') {
-            e.preventDefault();
-            clearDateSelection();
         }
     });
     
