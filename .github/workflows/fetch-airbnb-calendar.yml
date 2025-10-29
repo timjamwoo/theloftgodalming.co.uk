@@ -2,7 +2,6 @@ name: Fetch Airbnb Calendar
 
 env:
   AIRBNB_ICAL_URL: ${{ secrets.AIRBNB_ICAL_URL }}
-  
 on:
   schedule:
     - cron: '0 0 * * *'  # once per day at midnight UTC
