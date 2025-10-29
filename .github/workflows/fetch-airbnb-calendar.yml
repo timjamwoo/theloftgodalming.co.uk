@@ -1,8 +1,5 @@
 name: Fetch Airbnb Calendar
 
-env:
-  AIRBNB_ICAL_URL: ${{ secrets.AIRBNB_ICAL_URL }}
-
 on:
   schedule:
     - cron: '0 0 * * *'  # once per day at midnight UTC
@@ -11,6 +8,8 @@ on:
 jobs:
   update-calendar:
     runs-on: ubuntu-latest
+    env:
+      AIRBNB_ICAL_URL: ${{ secrets.AIRBNB_ICAL_URL }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -22,6 +21,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install ical.js node-fetch
+      
+      - name: Verify environment variable
+        run: 
+          echo "URL is: 
+            $AIRBNB_ICAL_URL | length: $(echo -n $AIRBNB_ICAL_URL | wc -c)"  # 👈 sanity check
 
       - name: Fetch Airbnb calendar
         run: node scripts/fetch-airbnb-calendar.js
