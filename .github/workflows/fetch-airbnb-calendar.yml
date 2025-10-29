@@ -1,0 +1,35 @@
+name: Fetch Airbnb Calendar
+
+env:
+  AIRBNB_ICAL_URL: ${{ secrets.AIRBNB_ICAL_URL }}
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # once per day at midnight UTC
+  workflow_dispatch:      # allows manual run
+
+jobs:
+  update-calendar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install ical.js node-fetch
+
+      - name: Fetch Airbnb calendar
+        run: node scripts/fetch-airbnb-calendar.js
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/airbnb-calendar.json
+          git commit -m "Update Airbnb calendar" || echo "No changes to commit"
+          git push
