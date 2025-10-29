@@ -571,25 +571,6 @@ function initializeAvailabilityCalendar() {
         'July', 'August', 'September', 'October', 'November', 'December'
     ];
     
-    // Mock some booked dates for demo purposes (in real environment, this would be fetched from Airbnb)
-    function initializeMockBookedDates() {
-        const today = new Date();
-        const mockBookedDates = [
-            // Add some sample booked dates for demonstration
-            new Date(today.getFullYear(), today.getMonth(), 15),
-            new Date(today.getFullYear(), today.getMonth(), 16),
-            new Date(today.getFullYear(), today.getMonth(), 17),
-            new Date(today.getFullYear(), today.getMonth() + 1, 5),
-            new Date(today.getFullYear(), today.getMonth() + 1, 6),
-            new Date(today.getFullYear(), today.getMonth() + 1, 7),
-            new Date(today.getFullYear(), today.getMonth() + 1, 8),
-        ];
-        
-        mockBookedDates.forEach(date => {
-            bookedDates.add(date.toDateString());
-        });
-    }
-    
     // Show loading state
     function showLoading() {
         isLoading = true;
@@ -647,7 +628,7 @@ function initializeAvailabilityCalendar() {
         }
     }
     
-    // Attempt to fetch availability data from Airbnb
+    // Attempt to fetch availability data from generated JSON file
     async function fetchAvailabilityData() {
         // Check cache first
         const cachedData = getCachedData();
@@ -656,30 +637,39 @@ function initializeAvailabilityCalendar() {
             renderCalendar();
             return;
         }
-        
+
         showLoading();
-        
+
         try {
-            // For production, this would attempt to fetch the iCal feed
-            // For now, we'll use mock data and show a message
-            console.log('Would fetch from: https://www.airbnb.co.uk/calendar/ical/18808847.ics?s=bc68cf4b3b7e6e752d4b9af1c1a0b00e');
-            
-            // Simulate loading delay
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            
-            // Initialize mock data for demonstration
-            initializeMockBookedDates();
-            
-            // Cache the mock data
+            // Fetch pre-parsed Airbnb calendar data from static JSON file
+            const response = await fetch('data/airbnb-calendar.json', {
+                cache: 'no-store' // always get the latest
+            });
+
+            if (!response.ok) {
+                throw new Error(`Failed to fetch calendar data: ${response.status}`);
+            }
+
+            const bookings = await response.json();
+
+            // Convert each booking range into individual booked days
+            bookings.forEach(({ start, end }) => {
+                const startDate = new Date(start);
+                const endDate = new Date(end);
+                for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+                    bookedDates.add(d.toDateString());
+                }
+            });
+
+            // Cache the data locally
             setCachedData(Array.from(bookedDates));
-            
+
             hideLoading();
             renderCalendar();
-            
         } catch (error) {
             console.error('Error fetching availability data:', error);
             showError();
-            
+
             // Still render the calendar without booking data
             bookedDates = new Set();
             renderCalendar();
