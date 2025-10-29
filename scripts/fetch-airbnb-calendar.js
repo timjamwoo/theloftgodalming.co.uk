@@ -7,7 +7,7 @@ const AIRBNB_ICAL_URL = process.env.AIRBNB_ICAL_URL;
 const OUTPUT_FILE = 'data/airbnb-calendar.json';
 
 async function main() {
-    console.log('Fetching Airbnb iCal feed...');
+    console.log('Fetching Airbnb iCal feed from ' + AIRBNB_ICAL_URL);
     const res = await fetch(AIRBNB_ICAL_URL);
     if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
     const text = await res.text();
