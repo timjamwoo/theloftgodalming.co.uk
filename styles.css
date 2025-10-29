@@ -1889,12 +1889,190 @@ html {
     margin: 0 auto;
 }
 
+/* Compact calendar styles for form integration */
+.availability-calendar.compact {
+    max-width: 350px;
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.compact-calendar-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    background: #fafafa;
+}
+
+.form-group-calendar {
+    margin-bottom: 1.5rem;
+}
+
+.form-group-calendar label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #1a4d2e;
+}
+
+.selected-dates {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.selected-date-display {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.date-info {
+    flex: 1;
+}
+
+.date-info label {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+}
+
+.date-info span {
+    display: block;
+    font-weight: 500;
+    color: #1a4d2e;
+    margin-top: 0.25rem;
+}
+
+.clear-dates-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.clear-dates-btn:hover {
+    background: #c82333;
+}
+
+.airbnb-link-section {
+    text-align: center;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f8f6f0;
+    border-radius: 8px;
+}
+
+.airbnb-link-section p {
+    margin-bottom: 1rem;
+    color: #666;
+}
+
 .calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
-    padding: 0 1rem;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+/* Compact calendar header styles */
+.availability-calendar.compact .calendar-header {
+    margin-bottom: 0.75rem;
+}
+
+.availability-calendar.compact .calendar-month {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.availability-calendar.compact .calendar-nav {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+}
+
+/* Compact calendar grid and day styles */
+.availability-calendar.compact .calendar-grid {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.availability-calendar.compact .weekday {
+    padding: 0.4rem 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.availability-calendar.compact .calendar-day {
+    font-size: 0.75rem;
+    min-height: 30px;
+    aspect-ratio: 1;
+}
+
+.availability-calendar.compact .calendar-legend {
+    margin: 0.75rem 0 0 0;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.availability-calendar.compact .legend-item {
+    font-size: 0.75rem;
+}
+
+.availability-calendar.compact .legend-color {
+    width: 14px;
+    height: 14px;
+}
+
+/* Selected date styles for range selection */
+.calendar-day.selected {
+    background: #1a4d2e !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+.calendar-day.selected:hover {
+    background: #1a4d2e !important;
+}
+
+.calendar-day.in-range {
+    background: #d4edda !important;
+    color: #1a4d2e !important;
+}
+
+.calendar-day.in-range:hover {
+    background: #c3e6cb !important;
+}
+
+.calendar-day.range-start {
+    background: #1a4d2e !important;
+    color: white !important;
+    font-weight: bold;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.calendar-day.range-end {
+    background: #1a4d2e !important;
+    color: white !important;
+    font-weight: bold;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.calendar-day.range-start.range-end {
+    border-radius: 50%;
+}
+
+.legend-color.selected {
+    background: #1a4d2e;
 }
 
 .calendar-month {
