@@ -23,9 +23,8 @@ jobs:
         run: npm install ical.js node-fetch
       
       - name: Verify environment variable
-        run: 
-          echo "URL is: 
-            $AIRBNB_ICAL_URL | length: $(echo -n $AIRBNB_ICAL_URL | wc -c)"  # 👈 sanity check
+        run: echo 
+          "URL is: $AIRBNB_ICAL_URL | length: $(echo -n $AIRBNB_ICAL_URL | wc -c)"  # 👈 sanity check
 
       - name: Fetch Airbnb calendar
         run: node scripts/fetch-airbnb-calendar.js
