@@ -1036,6 +1036,23 @@ h2 {
     opacity: 0.7;
 }
 
+.image-credits {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+    line-height: 1.4;
+}
+
+.image-credits a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.image-credits a:hover {
+    opacity: 0.8;
+}
+
+
 /* Mobile Menu Button */
 .mobile-menu-button {
     display: none;
